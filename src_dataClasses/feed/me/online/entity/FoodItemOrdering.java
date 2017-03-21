@@ -3,9 +3,9 @@ package feed.me.online.entity;
 /**
  */
 @SuppressWarnings("all")
-@javax.annotation.Generated(comments="This is the java file of the ivy data class Order", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
+@javax.annotation.Generated(comments="This is the java file of the ivy data class FoodItemOrdering", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
 @javax.persistence.Entity
-public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
+public class FoodItemOrdering extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
   private static final long serialVersionUID = 8677185038556371276L;

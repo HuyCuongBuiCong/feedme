@@ -1,4 +1,4 @@
-Order #class
+FoodItemOrdering #class
 true #isEntity
 feed.me.online.entity #namespace
 id Integer #field

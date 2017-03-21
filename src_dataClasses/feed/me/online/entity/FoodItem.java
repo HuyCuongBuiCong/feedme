@@ -8,7 +8,7 @@ package feed.me.online.entity;
 public class FoodItem extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 7420220799576209257L;
+  private static final long serialVersionUID = 2676113630965473778L;
 
   /**
    * Identifier
@@ -97,24 +97,24 @@ public class FoodItem extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   }
 
   @javax.persistence.OneToMany(cascade={javax.persistence.CascadeType.PERSIST, javax.persistence.CascadeType.MERGE}, fetch=javax.persistence.FetchType.EAGER, mappedBy="foodItem", orphanRemoval=false)
-  private java.util.List<feed.me.online.entity.Order> order;
+  private java.util.List<feed.me.online.entity.FoodItemOrdering> foodItemOrder;
 
   /**
-   * Gets the field order.
-   * @return the value of the field order; may be null.
+   * Gets the field foodItemOrder.
+   * @return the value of the field foodItemOrder; may be null.
    */
-  public java.util.List<feed.me.online.entity.Order> getOrder()
+  public java.util.List<feed.me.online.entity.FoodItemOrdering> getFoodItemOrder()
   {
-    return order;
+    return foodItemOrder;
   }
 
   /**
-   * Sets the field order.
-   * @param _order the new value of the field order.
+   * Sets the field foodItemOrder.
+   * @param _foodItemOrder the new value of the field foodItemOrder.
    */
-  public void setOrder(java.util.List<feed.me.online.entity.Order> _order)
+  public void setFoodItemOrder(java.util.List<feed.me.online.entity.FoodItemOrdering> _foodItemOrder)
   {
-    order = _order;
+    foodItemOrder = _foodItemOrder;
   }
 
 }

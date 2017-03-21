@@ -14,8 +14,8 @@ orderingTicket feed.me.online.entity.OrderingTicket #field
 orderingTicket PERSISTENT #fieldModifier
 orderingTicket MANY_TO_ONE #fieldAssociation
 orderingTicket PERSIST MERGE #fieldCascadeTypes
-order java.util.List<feed.me.online.entity.Order> #field
-order PERSISTENT #fieldModifier
-order ONE_TO_MANY #fieldAssociation
-order PERSIST MERGE #fieldCascadeTypes
-order foodItem #mappedByFieldName
+foodItemOrder List<feed.me.online.entity.FoodItemOrdering> #field
+foodItemOrder PERSISTENT #fieldModifier
+foodItemOrder ONE_TO_MANY #fieldAssociation
+foodItemOrder PERSIST MERGE #fieldCascadeTypes
+foodItemOrder foodItem #mappedByFieldName
