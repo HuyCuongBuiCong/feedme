@@ -19,3 +19,5 @@ foodItems PERSIST MERGE #fieldCascadeTypes
 foodItems orderingTicket #mappedByFieldName
 status Integer #field
 status PERSISTENT #fieldModifier
+orderOutOfListFood Boolean #field
+orderOutOfListFood PERSISTENT #fieldModifier
