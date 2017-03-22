@@ -7,15 +7,15 @@ package feed.me.online;
 public class LoginData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 5760609271846382771L;
+  private static final long serialVersionUID = -2924147475403725049L;
 
-  private ch.ivyteam.ivy.security.IUser username;
+  private java.lang.String username;
 
   /**
    * Gets the field username.
    * @return the value of the field username; may be null.
    */
-  public ch.ivyteam.ivy.security.IUser getUsername()
+  public java.lang.String getUsername()
   {
     return username;
   }
@@ -24,29 +24,9 @@ public class LoginData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
    * Sets the field username.
    * @param _username the new value of the field username.
    */
-  public void setUsername(ch.ivyteam.ivy.security.IUser _username)
+  public void setUsername(java.lang.String _username)
   {
     username = _username;
-  }
-
-  private ch.ivyteam.ivy.security.IRole role;
-
-  /**
-   * Gets the field role.
-   * @return the value of the field role; may be null.
-   */
-  public ch.ivyteam.ivy.security.IRole getRole()
-  {
-    return role;
-  }
-
-  /**
-   * Sets the field role.
-   * @param _role the new value of the field role.
-   */
-  public void setRole(ch.ivyteam.ivy.security.IRole _role)
-  {
-    role = _role;
   }
 
   private java.lang.String password;

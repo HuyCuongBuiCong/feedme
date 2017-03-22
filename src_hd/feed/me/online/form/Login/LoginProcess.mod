@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Mar 22 18:09:51 ICT 2017]
-15AF42D282DB473E 3.18 #module
+[>Created: Wed Mar 22 23:16:53 ICT 2017]
+15AF42D282DB473E 3.19 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
 Ls0 RD #cInfo
@@ -24,12 +24,12 @@ Ls0 @GridStep f8 '' #zField
 Ls0 @PushWFArc f9 '' #zField
 Ls0 @RichDialogInitStart f0 '' #zField
 Ls0 @RichDialogProcessEnd f1 '' #zField
-Ls0 @PushWFArc f2 '' #zField
 Ls0 @RichDialogEnd f13 '' #zField
 Ls0 @Alternative f10 '' #zField
 Ls0 @PushWFArc f11 '' #zField
 Ls0 @PushWFArc f12 '' #zField
 Ls0 @PushWFArc f14 '' #zField
+Ls0 @PushWFArc f2 '' #zField
 >Proto Ls0 Ls0 LoginProcess #zField
 Ls0 f3 guid 15AF42D28F736FFC #txt
 Ls0 f3 type feed.me.online.form.Login.LoginData #txt
@@ -105,8 +105,6 @@ Ls0 f0 @|RichDialogInitStartIcon #fIcon
 Ls0 f1 type feed.me.online.form.Login.LoginData #txt
 Ls0 f1 611 51 26 26 0 12 #rect
 Ls0 f1 @|RichDialogProcessEndIcon #fIcon
-Ls0 f2 expr out #txt
-Ls0 f2 109 64 611 64 #arcP
 Ls0 f13 type feed.me.online.form.Login.LoginData #txt
 Ls0 f13 guid 15AF50D9391F1183 #txt
 Ls0 f13 595 371 26 26 0 12 #rect
@@ -135,6 +133,8 @@ Ls0 f14 expr in #txt
 Ls0 f14 448 304 595 384 #arcP
 Ls0 f14 1 448 384 #addKink
 Ls0 f14 1 0.19441643593494362 0 0 #arcLabel
+Ls0 f2 expr out #txt
+Ls0 f2 109 64 611 64 #arcP
 >Proto Ls0 .type feed.me.online.form.Login.LoginData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
@@ -143,11 +143,11 @@ Ls0 f3 mainOut f5 tail #connect
 Ls0 f5 head f4 mainIn #connect
 Ls0 f6 mainOut f9 tail #connect
 Ls0 f9 head f8 mainIn #connect
-Ls0 f0 mainOut f2 tail #connect
-Ls0 f2 head f1 mainIn #connect
 Ls0 f8 mainOut f11 tail #connect
 Ls0 f11 head f10 in #connect
 Ls0 f10 out f12 tail #connect
 Ls0 f12 head f7 mainIn #connect
 Ls0 f10 out f14 tail #connect
 Ls0 f14 head f13 mainIn #connect
+Ls0 f0 mainOut f2 tail #connect
+Ls0 f2 head f1 mainIn #connect

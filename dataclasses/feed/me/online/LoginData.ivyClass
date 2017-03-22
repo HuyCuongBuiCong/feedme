@@ -1,8 +1,6 @@
 LoginData #class
 feed.me.online #namespace
-username ch.ivyteam.ivy.security.IUser #field
+username String #field
 username PERSISTENT #fieldModifier
-role ch.ivyteam.ivy.security.IRole #field
-role PERSISTENT #fieldModifier
 password String #field
 password PERSISTENT #fieldModifier

@@ -17,16 +17,19 @@
 			<h:form id="form">
 				<h:panelGrid columns="2">
 					<f:facet name="header">
-						<p:messages></p:messages>
+						<p:messages id="infomess" autoUpdate="true" ></p:messages>
 					</f:facet>
 					<p:outputLabel for="username" value="Username"></p:outputLabel>
-					<p:inputText id="username" value="#{data.loginData.username}"></p:inputText>
+					<p:inputText id="username" value="#{data.loginData.username}" required="true"></p:inputText>
+					
+					
 					<p:outputLabel for="password" value="Password"></p:outputLabel>
-					<p:password id="password" value="#{data.loginData.password}"></p:password>
+					<p:password id="password" value="#{data.loginData.password}" required="true"></p:password>
+					
 					<!-- No 'form field [feed.me.online.Data]' template found for field 'data'. -->
 					
 					<br />
-					<p:commandButton actionListener="#{logic.validateLogin}" value="Proceed" update="form" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.validateLogin}" value="Proceed" update="infomess" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
 			
