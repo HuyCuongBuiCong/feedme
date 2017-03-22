@@ -1,0 +1,6 @@
+LoginData #class
+feed.me.online.form.Login #namespace
+loginData feed.me.online.LoginData #field
+loginData PERSISTENT #fieldModifier
+isValid Boolean #field
+isValid PERSISTENT #fieldModifier
