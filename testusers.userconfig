@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<userConfig/>
+<userConfig>
+    <user>
+        <username>orell</username>
+        <password>123</password>
+        <fullName>Orell Apenzeller</fullName>
+        <role>Ordering Manager</role>
+    </user>
+    <user>
+        <username>khoale</username>
+        <password>123</password>
+        <fullName>Khoa Le</fullName>
+        <role>Guest</role>
+    </user>
+    <user>
+        <username>patrick</username>
+        <password>123</password>
+        <fullName>Patrick Brazzale</fullName>
+        <role>Purchasing Manager</role>
+    </user>
+</userConfig>
