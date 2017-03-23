@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Mar 22 23:16:53 ICT 2017]
-15AF42D282DB473E 3.19 #module
+[>Created: Thu Mar 23 08:57:01 ICT 2017]
+15AF42D282DB473E 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
 Ls0 RD #cInfo
@@ -91,12 +91,16 @@ Ls0 f0 disableUIEvents true #txt
 Ls0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <feed.me.online.LoginData data> param = methodEvent.getInputArguments();
 ' #txt
+Ls0 f0 inParameterMapAction 'out.loginData=param.data;
+' #txt
 Ls0 f0 outParameterDecl '<> result;
 ' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(LoginData)</name>
+        <nameStyle>16,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
