@@ -1,4 +1,0 @@
-Data #class
-feed.me.online #namespace
-loginData feed.me.online.LoginData #field
-loginData PERSISTENT #fieldModifier
