@@ -1,0 +1,14 @@
+FoodOrder #class
+true #isEntity
+feed.me.online.entity #namespace
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+username String #field
+username PERSISTENT #fieldModifier
+foodItem feed.me.online.entity.FoodItem #field
+foodItem PERSISTENT #fieldModifier
+foodItem MANY_TO_ONE #fieldAssociation
+foodItem PERSIST MERGE #fieldCascadeTypes

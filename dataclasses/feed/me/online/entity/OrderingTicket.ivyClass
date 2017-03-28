@@ -1,0 +1,23 @@
+OrderingTicket #class
+true #isEntity
+feed.me.online.entity #namespace
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+createdDate java.util.Date #field
+createdDate PERSISTENT #fieldModifier
+restaurant feed.me.online.entity.Restaurant #field
+restaurant PERSISTENT #fieldModifier
+restaurant ONE_TO_ONE #fieldAssociation
+restaurant PERSIST MERGE #fieldCascadeTypes
+foodItems List<feed.me.online.entity.FoodItem> #field
+foodItems PERSISTENT #fieldModifier
+foodItems ONE_TO_MANY #fieldAssociation
+foodItems PERSIST MERGE #fieldCascadeTypes
+foodItems orderingTicket #mappedByFieldName
+status Integer #field
+status PERSISTENT #fieldModifier
+orderOutOfListFood Boolean #field
+orderOutOfListFood PERSISTENT #fieldModifier
