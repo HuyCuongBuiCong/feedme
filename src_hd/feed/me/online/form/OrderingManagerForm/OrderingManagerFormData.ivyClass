@@ -1,2 +1,4 @@
 OrderingManagerFormData #class
 feed.me.online.form.OrderingManagerForm #namespace
+orderingTikets java.util.List<feed.me.online.entity.OrderingTicket> #field
+orderingTikets PERSISTENT #fieldModifier
