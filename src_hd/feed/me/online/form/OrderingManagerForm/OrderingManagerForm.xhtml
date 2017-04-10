@@ -15,19 +15,21 @@
 			implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
 			</h3>
 			
-			<h:form id="form">
+			<h:form id="orderingManagerForm">
 			
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-xs-4">
 							<ic:feed.me.online.components.OrderingList
-								orderingTickets="#{data.orderingManagerModel.orderingTickets}"								
+								orderingTickets="#{data.orderingManagerModel.orderingTickets}"	
+								selectedOrderingTicket = "#{data.orderingManagerModel.selectedOrderingTicket}"							
 								startMethod="startWithOrderingTickets">
 							</ic:feed.me.online.components.OrderingList>
 						</div>
+						
 						<div class="col-xs-8">
-							
-
+						
+						
 						</div>
 					</div>
 				</div>

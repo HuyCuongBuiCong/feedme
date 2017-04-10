@@ -10,7 +10,9 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf">
       
    <cc:interface componentType="IvyComponent">
-		
+			<cc:attribute name="selectedOrderingTicket"
+		shortDescription="TableRowSelected will be invoked on the callback when a person is selected."
+		required="true" />
 	</cc:interface>
   
   <cc:implementation>
@@ -28,12 +30,16 @@
 			</div>
 				<button 
 					jsf:styleClass="btn btn-default btn-block text-left btn-primary"
+					jsf:update="viewAllExamination"
+					
 					 >
 				#{orderingTicket.restaurant.name} 
-				</button>
+			 <f:setPropertyActionListener value="#{orderingTicket}"
+						target="#{cc.attrs.selectedOrderingTicket}"></f:setPropertyActionListener>
+				</button> 
 			</p:dataList>
 		</div>
 	</div>
-   <ui:include src="CreatingNewOrderingTicketDialog.xhtml"></ui:include>
+  <ui:include src="CreatingNewOrderingTicketDialog.xhtml"></ui:include> 
   </cc:implementation>
 </html>
