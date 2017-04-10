@@ -1,4 +1,4 @@
 OrderingListData #class
 feed.me.online.components.OrderingList #namespace
-orderingList java.util.List<feed.me.online.entity.FoodOrder> #field
+orderingList java.util.List<feed.me.online.entity.OrderingTicket> #field
 orderingList PERSISTENT #fieldModifier

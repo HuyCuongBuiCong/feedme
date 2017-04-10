@@ -25,8 +25,6 @@ public class CreateSampleData {
 		e.printStackTrace();
 	}
 	 
-	
-	 
 	 OrderingTicket orderingTicket1 = new OrderingTicket();
 	 orderingTicket1.setCreatedDate(date1);
 	 orderingTicket1.setFoodItems(createListOfFoodItem1());
