@@ -2,7 +2,7 @@
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
     <startMethod>
-        <name>start</name>
+        <name>startWithOrderingTickets</name>
         <description></description>
         <inputParameter>
             <name>orderingTickets</name>
@@ -10,6 +10,10 @@
             <parameterType>java.util.List&lt;feed.me.online.entity.OrderingTicket&gt;</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startCuong</name>
+        <description></description>
     </startMethod>
     <property>
         <name>guid</name>
