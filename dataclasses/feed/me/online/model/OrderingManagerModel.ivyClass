@@ -1,0 +1,6 @@
+OrderingManagerModel #class
+feed.me.online.model #namespace
+orderingTickets java.util.List<feed.me.online.entity.OrderingTicket> #field
+orderingTickets PERSISTENT #fieldModifier
+selectedOrderingTicket feed.me.online.entity.OrderingTicket #field
+selectedOrderingTicket PERSISTENT #fieldModifier
