@@ -16,7 +16,7 @@
 		<div>
 			<p:outputLabel value="#{ivy.cms.co('/Labels/Welcome')} #{data.user.fullName}" />
 			<p:commandLink value="#{ivy.cms.co('/Labels/Logout')}"
-				actionListener="#{logic.logout()}" />
+				actionListener="#{logic.logout()}" immediate="true"/>
 		</div>
 		<div>
 			<p:outputLabel value=" #{ivy.cms.co('/Labels/Role')}: #{data.role.name}" />
