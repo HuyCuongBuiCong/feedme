@@ -3,7 +3,13 @@
     <autoScreenshot>true</autoScreenshot>
     <startMethod>
         <name>start</name>
-        <description>Default dialog start method.</description>
+        <description></description>
+        <inputParameter>
+            <name>orderingTickets</name>
+            <description></description>
+            <parameterType>java.util.List&lt;feed.me.online.entity.OrderingTicket&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </startMethod>
     <property>
         <name>guid</name>

@@ -8,10 +8,11 @@ import java.util.List;
 
 import feed.me.online.entity.FoodItem;
 import feed.me.online.entity.OrderingTicket;
+import feed.me.online.entity.Restaurant;
 
 public class CreateSampleData {
  
-	public static List<OrderingTicket> createListOfFoodOrder(){
+	public static List<OrderingTicket> createOrderingTicketList(){
 		 List<OrderingTicket> orderingTickets = new ArrayList<>();
 		
 	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -24,14 +25,22 @@ public class CreateSampleData {
 		
 		e.printStackTrace();
 	}
+	
+	Restaurant smoothiesRestaurant = new Restaurant();
+	smoothiesRestaurant.setName("Smoothies");
+	
+	Restaurant dominoRestaurant = new Restaurant();
+	dominoRestaurant.setName("Domino");
 	 
 	 OrderingTicket orderingTicket1 = new OrderingTicket();
 	 orderingTicket1.setCreatedDate(date1);
 	 orderingTicket1.setFoodItems(createListOfFoodItem1());
+	 orderingTicket1.setRestaurant(smoothiesRestaurant);
 	
 	 OrderingTicket orderingTicket2 = new OrderingTicket();
 	 orderingTicket2.setCreatedDate(date2);
 	 orderingTicket2.setFoodItems(createListOfFoodItem2());
+	 orderingTicket2.setRestaurant(dominoRestaurant);
 	 
 	 orderingTickets.add(orderingTicket1);
 	 orderingTickets.add(orderingTicket2);
