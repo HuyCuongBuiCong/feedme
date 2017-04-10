@@ -22,6 +22,12 @@
 					</f:facet>
 					
 					
+					<p:commandButton actionListener="#{logic.createNewOrderingTicket}" oncomplete="PF('orderingTicket').show();" value="New" icon="ui-icon-check" />
+					
+					<p:dialog header="#{ivy.cms.co('/Labels/createOrderingTicketDialogTitle')}" widgetVar="orderingTicket" resizable="false">
+					</p:dialog>
+					
+					
 					
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />

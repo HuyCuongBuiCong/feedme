@@ -18,4 +18,10 @@
         <fullName>Patrick Brazzale</fullName>
         <role>Purchasing Manager</role>
     </user>
+    <user>
+        <username>nmly</username>
+        <password>123456</password>
+        <fullName>Nguyen Minh Ly</fullName>
+        <role>Ordering Manager</role>
+    </user>
 </userConfig>
