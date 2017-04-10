@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 23 08:57:01 ICT 2017]
+[>Created: Mon Apr 10 11:34:07 ICT 2017]
 15AF42D282DB473E 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
@@ -27,9 +27,11 @@ Ls0 @RichDialogProcessEnd f1 '' #zField
 Ls0 @RichDialogEnd f13 '' #zField
 Ls0 @Alternative f10 '' #zField
 Ls0 @PushWFArc f11 '' #zField
-Ls0 @PushWFArc f12 '' #zField
 Ls0 @PushWFArc f14 '' #zField
 Ls0 @PushWFArc f2 '' #zField
+Ls0 @GridStep f15 '' #zField
+Ls0 @PushWFArc f16 '' #zField
+Ls0 @PushWFArc f12 '' #zField
 >Proto Ls0 Ls0 LoginProcess #zField
 Ls0 f3 guid 15AF42D28F736FFC #txt
 Ls0 f3 type feed.me.online.form.Login.LoginData #txt
@@ -70,7 +72,7 @@ Ls0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ls0 f6 83 275 26 26 -36 15 #rect
 Ls0 f6 @|RichDialogProcessStartIcon #fIcon
 Ls0 f7 type feed.me.online.form.Login.LoginData #txt
-Ls0 f7 595 275 26 26 0 12 #rect
+Ls0 f7 691 275 26 26 0 12 #rect
 Ls0 f7 @|RichDialogProcessEndIcon #fIcon
 Ls0 f8 actionDecl 'feed.me.online.form.Login.LoginData out;
 ' #txt
@@ -118,9 +120,26 @@ Ls0 f10 432 272 32 32 0 16 #rect
 Ls0 f10 @|AlternativeIcon #fIcon
 Ls0 f11 expr out #txt
 Ls0 f11 288 288 432 288 #arcP
-Ls0 f12 expr in #txt
-Ls0 f12 outCond in.isValid==false #txt
-Ls0 f12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ls0 f14 expr in #txt
+Ls0 f14 448 304 595 384 #arcP
+Ls0 f14 1 448 384 #addKink
+Ls0 f14 1 0.19441643593494362 0 0 #arcLabel
+Ls0 f2 expr out #txt
+Ls0 f2 109 64 611 64 #arcP
+Ls0 f15 actionDecl 'feed.me.online.form.Login.LoginData out;
+' #txt
+Ls0 f15 actionTable 'out=in;
+' #txt
+Ls0 f15 actionCode 'import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR,"Incorrect Username and Passowrd",
+       "Please enter correct username and Password"));' #txt
+Ls0 f15 type feed.me.online.form.Login.LoginData #txt
+Ls0 f15 520 266 112 44 0 -8 #rect
+Ls0 f15 @|StepIcon #fIcon
+Ls0 f16 expr in #txt
+Ls0 f16 outCond in.isValid==false #txt
+Ls0 f16 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>login faild
@@ -131,14 +150,11 @@ Ls0 f12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f12 464 288 595 288 #arcP
+Ls0 f16 464 288 520 288 #arcP
+Ls0 f16 0 0.4961832061068702 0 0 #arcLabel
+Ls0 f12 expr out #txt
+Ls0 f12 632 288 691 288 #arcP
 Ls0 f12 0 0.4961832061068702 0 0 #arcLabel
-Ls0 f14 expr in #txt
-Ls0 f14 448 304 595 384 #arcP
-Ls0 f14 1 448 384 #addKink
-Ls0 f14 1 0.19441643593494362 0 0 #arcLabel
-Ls0 f2 expr out #txt
-Ls0 f2 109 64 611 64 #arcP
 >Proto Ls0 .type feed.me.online.form.Login.LoginData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
@@ -149,9 +165,11 @@ Ls0 f6 mainOut f9 tail #connect
 Ls0 f9 head f8 mainIn #connect
 Ls0 f8 mainOut f11 tail #connect
 Ls0 f11 head f10 in #connect
-Ls0 f10 out f12 tail #connect
-Ls0 f12 head f7 mainIn #connect
-Ls0 f10 out f14 tail #connect
 Ls0 f14 head f13 mainIn #connect
 Ls0 f0 mainOut f2 tail #connect
 Ls0 f2 head f1 mainIn #connect
+Ls0 f10 out f16 tail #connect
+Ls0 f16 head f15 mainIn #connect
+Ls0 f10 out f14 tail #connect
+Ls0 f15 mainOut f12 tail #connect
+Ls0 f12 head f7 mainIn #connect
