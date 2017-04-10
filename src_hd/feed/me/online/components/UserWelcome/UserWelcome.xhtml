@@ -14,7 +14,9 @@
 <cc:implementation>
 	<p:outputPanel rendered="#{data.user != null}">
 		<div>
-			<p:outputLabel value="#{ivy.cms.co('/Labels/Welcome')} #{data.user.fullName}" /> <p:link value="#{ivy.cms.co('/Labels/Logout')}" />
+			<p:outputLabel value="#{ivy.cms.co('/Labels/Welcome')} #{data.user.fullName}" />
+			<p:commandLink value="#{ivy.cms.co('/Labels/Logout')}"
+				actionListener="#{logic.logout()}" />
 		</div>
 		<div>
 			<p:outputLabel value=" #{ivy.cms.co('/Labels/Role')}: #{data.role.name}" />
