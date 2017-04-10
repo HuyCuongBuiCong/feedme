@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">OrderingManagerForm</ui:define>
+		<ui:define name="content">
+			<h3>
+			This is an <a href="http://developer.axonivy.com/doc/latest/DesignerGuideHtml/ivy.userinterface.html#ivy-htmldialogs">Html Dialog</a> 
+			implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
+			</h3>
+			
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<f:facet name="header">
+						<p:messages></p:messages>
+					</f:facet>
+					
+					
+					<p:commandButton actionListener="#{logic.createNewOrderingTicket}" oncomplete="PF('orderingTicket').show();" value="New" icon="ui-icon-check" />
+					<p:dialog header="#{ivy.cms.co('/Labels/createOrderingTicketDialogTitle')}" widgetVar="orderingTicket" resizable="false">
+						<h:panelGrid columns="2" cellpadding="10" cellspacing="100">						
+							<h:outputLabel for="orderingTicketDataRestaurant" value="#{ivy.cms.co('/Labels/orderingTicketRestaurant')}" />
+							<p:selectOneMenu id="orderingTicketDataRestaurant" value="" style="width: 28px;" required="true">
+   							<!--<p:ajax listener="#{dropdownView.onCountryChange}" update="city" /> -->
+   							<!-- <f:selectItem itemLabel="Select Restaurant" itemValue="" noSelectionOption="true" />  -->
+   							<!-- <f:selectItems value="#{dropdownView.countries}" /> -->
+   							<f:selectItem itemLabel="New Restaurant" itemValue="" noSelectionOption="true" />
+  							</p:selectOneMenu>
+  						
+  							<h:outputLabel for="restaurantName" value="Name: " />
+            		    	<p:inputText id="restaurantName" value="" style="width: 320px;" required="true"/>
+    
+               				<h:outputLabel for="restaurantWebsite" value="Website: " />
+               				<p:inputText id="restaurantWebsite" value="" style="width: 320px;" required="true"/>
+  
+			                <h:outputLabel for="restaurantPhone" value="Phone: " />
+			                <p:inputText id="restaurantPhone" value="" style="width: 150px;" required="true"/>
+           
+               				<h:outputText value="" />            
+            				<p:selectBooleanCheckbox value="" itemLabel="Order out of food list"/>              
+           				</h:panelGrid>
+           
+           
+           				<h:panelGrid cellpadding="10" cellspacing="20">
+				            <p:row>
+								<p:column>
+									<h:outputLabel for="foodName" value="Food name(*) " />
+								</p:column>
+								<p:column>
+									<h:outputLabel for="foodPrice" value="Price " />
+								</p:column>
+								<p:column>
+									<h:outputLabel/>
+								</p:column>
+							</p:row>
+							
+							<p:row>
+								<p:column>
+									<p:inputText id="foodName" value="" style="width: 300x;" required="true"/>
+								</p:column>
+								<p:column>
+					            	<p:inputText id="foodPrice" value="" style="width: 150px;" required="true"/>
+					            </p:column>
+					            <p:column>
+					            	<p:commandButton value="Add" />
+					            </p:column>
+							</p:row>
+						</h:panelGrid>
+				 		
+						<h:panelGrid columns="1" cellpadding="10">
+	               			<p:dataTable id="cars" var="car" value="" rowKey="" style="width: 450px;">
+		            			<p:column headerText="Food" style="width: 200px;">
+		                			<h:outputText value="" />
+		            			</p:column>
+		            			<p:column headerText="Price">
+		                			<h:outputText value="" />
+		            			</p:column>
+		            			<p:column headerText="Action">
+		                			<h:outputText value="" />
+		            			</p:column>
+						    </p:dataTable>
+					    </h:panelGrid>
+					            
+			            <f:facet name="footer">
+			                 <p:commandButton value="Save" />
+			                 <p:commandButton value="Close" onclick="PF('orderingTicket').hide();" />
+			            </f:facet>  
+					</p:dialog>
+					
+					
+					
+					<br />
+					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+				</h:panelGrid>
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
