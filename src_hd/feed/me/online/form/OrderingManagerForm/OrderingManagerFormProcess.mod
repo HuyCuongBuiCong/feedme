@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Apr 10 17:12:34 ICT 2017]
+[>Created: Mon Apr 10 17:23:27 ICT 2017]
 15AF444F77252180 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 OrderingManagerFormProcess Big #zClass
@@ -95,6 +95,11 @@ Vs0 f9 actionDecl 'feed.me.online.form.OrderingManagerForm.OrderingManagerFormDa
 ' #txt
 Vs0 f9 actionTable 'out=in;
 ' #txt
+Vs0 f9 actionCode 'import feed.me.online.utils.CreateSampleData;
+import feed.me.online.model.OrderingManagerModel;
+in.orderingManagerModel = new OrderingManagerModel();
+in.orderingManagerModel.orderingTickets = CreateSampleData.createOrderingTicketList();
+in.orderingManagerModel.selectedOrderingTicket = in.orderingManagerModel.orderingTickets.get(0);' #txt
 Vs0 f9 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 Vs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
