@@ -1,4 +1,6 @@
 OrderingManagerFormData #class
 feed.me.online.form.OrderingManagerForm #namespace
-orderingTikets java.util.List<feed.me.online.entity.OrderingTicket> #field
-orderingTikets PERSISTENT #fieldModifier
+orderingManagerModel feed.me.online.model.OrderingManagerModel #field
+orderingManagerModel PERSISTENT #fieldModifier
+role ch.ivyteam.ivy.security.IRole #field
+role PERSISTENT #fieldModifier
