@@ -14,9 +14,11 @@
 	</cc:interface>
   
   <cc:implementation>
-   			 <p:commandButton styleClass="btn btn-primary btn-block"
-			value="new" > 
+   
+			<p:commandButton  styleClass="btn btn-primary btn-block" actionListener="#{logic.createNewOrderingTicket}"
+					oncomplete="PF('orderingTicket').show()" value="New">
 			</p:commandButton>
+		 		
  <div class="panel panel-primary">
 		<div class="panel-body">
 			<p:dataList value="#{data.orderingTickets}" var="orderingTicket"
@@ -32,6 +34,6 @@
 			</p:dataList>
 		</div>
 	</div>
-   
+   <ui:include src="CreatingNewOrderingTicketDialog.xhtml"></ui:include>
   </cc:implementation>
 </html>

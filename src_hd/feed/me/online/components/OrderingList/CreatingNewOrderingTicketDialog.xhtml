@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:body>
+	<p:dialog header="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/createOrderingTicketDialogTitle')}" id="orderingTicket" visible="#{facesContext.validationFailed}" resizable="false"
+		widgetVar="orderingTicket" modal="true" appendTo="@(body)">
+		<h:form id="orderingTicketForm">
+					<h:panelGrid columns="2" cellpadding="10" cellspacing="100">						
+					<h:outputLabel for="orderingTicketDataRestaurant" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/orderingTicketRestaurant')}" />
+					<p:selectOneMenu id="orderingTicketDataRestaurant" value="" style="width: 265px;" required="true">
+ 							<f:selectItem itemLabel="New Restaurant" itemValue="" noSelectionOption="true" />
+							</p:selectOneMenu>
+						
+							<h:outputLabel for="restaurantName" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/restaurantName')}" />
+          		    	<p:inputText id="restaurantName" value="" style="width: 300px;" required="true"/>
+  
+             				<h:outputLabel for="restaurantWebsite" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/restaurantWebsite')}" />
+             				<p:inputText id="restaurantWebsite" value="" style="width: 300px;" required="true"/>
+
+	                <h:outputLabel for="restaurantPhone" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/restaurantPhone')}" />
+	                <p:inputText id="restaurantPhone" value="" style="width: 150px;" required="true"/>
+         
+             				<h:outputText value="" />            
+          				<p:selectBooleanCheckbox value="" itemLabel="Order out of food list"/>              
+         				</h:panelGrid>
+         
+         
+         				<h:panelGrid cellpadding="10" cellspacing="10">
+		            <p:row>
+						<p:column>
+							<h:outputLabel for="foodName" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/foodName')}" />
+						</p:column>
+						<p:column>
+							<h:outputLabel for="foodPrice" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/foodPrice')}" />
+						</p:column>
+						<p:column>
+							<h:outputLabel/>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column>
+							<p:inputText id="foodName" value="" style="width: 250x;" required="true"/>
+						</p:column>
+						<p:column>
+			            	<p:inputText id="foodPrice" value="" style="width: 100px;" required="true"/>
+			            </p:column>
+			            <p:column>
+			            	<p:commandButton value="Add" />
+			            </p:column>
+					</p:row>
+				</h:panelGrid>
+		 		
+				<h:panelGrid columns="1" cellpadding="10">
+              			<p:dataTable id="cars" var="car" value="" rowKey="" style="width: 420px;">
+            			<p:column headerText="Food" style="width: 200px;">
+                			<h:outputText value="" />
+            			</p:column>
+            			<p:column headerText="Price">
+                			<h:outputText value="" />
+            			</p:column>
+            			<p:column headerText="Action">
+                			<h:outputText value="" />
+            			</p:column>
+				    </p:dataTable>
+			    </h:panelGrid>
+			
+			<h:panelGroup>
+				<br />
+				<p:commandButton value="#{ivy.cms.co('/Dialogs/general/save')}" actionListener="#{logic.saveOrderingTicket}"
+					oncomplete="validateToHide(args, PF('orderingTicket'));" id="dialogSaveButton" />
+				<p:commandButton value="#{ivy.cms.co('/Dialogs/general/close')}"
+					actionListener="#{logic.closeDialog}" process="@this" oncomplete="PF('orderingTicket').hide();">
+					<p:resetInput target="orderingTicketForm"></p:resetInput>
+				</p:commandButton>
+			</h:panelGroup>
+			            
+			</h:form>
+			
+		<script>
+			function validateToHide(args, dialog) {
+				// args is a default primefaces parameter
+				if (!args.validationFailed) {
+					dialog.hide();
+				}
+			}
+		</script>
+	</p:dialog>
+</h:body>
+</html>
