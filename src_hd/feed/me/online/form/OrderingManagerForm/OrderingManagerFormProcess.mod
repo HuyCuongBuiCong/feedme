@@ -2,7 +2,7 @@
 [>Created: Mon Apr 10 09:07:05 ICT 2017]
 15AF444F77252180 3.18 #module
 >Proto >Proto Collection #zClass
-Vs0 ViewAllOrderingFormProcess Big #zClass
+Vs0 OrderingManagerFormProcess Big #zClass
 Vs0 RD #cInfo
 Vs0 #process
 Vs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
@@ -24,9 +24,9 @@ Vs0 @PushWFArc f5 '' #zField
 Vs0 @RichDialogProcessStart f6 '' #zField
 Vs0 @RichDialogProcessEnd f7 '' #zField
 Vs0 @PushWFArc f8 '' #zField
->Proto Vs0 Vs0 ViewAllOrderingFormProcess #zField
+>Proto Vs0 Vs0 OrderingManagerFormProcess #zField
 Vs0 f0 guid 15AF444F787D2C49 #txt
-Vs0 f0 type feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData #txt
+Vs0 f0 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 Vs0 f0 method start() #txt
 Vs0 f0 disableUIEvents true #txt
 Vs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
@@ -43,14 +43,14 @@ Vs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Vs0 f0 83 51 26 26 -16 15 #rect
 Vs0 f0 @|RichDialogInitStartIcon #fIcon
-Vs0 f1 type feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData #txt
+Vs0 f1 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 Vs0 f1 211 51 26 26 0 12 #rect
 Vs0 f1 @|RichDialogProcessEndIcon #fIcon
 Vs0 f2 expr out #txt
 Vs0 f2 109 64 211 64 #arcP
 Vs0 f3 guid 15AF444F795DA38C #txt
-Vs0 f3 type feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData #txt
-Vs0 f3 actionDecl 'feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData out;
+Vs0 f3 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
+Vs0 f3 actionDecl 'feed.me.online.form.OrderingManagerForm.OrderingManagerFormData out;
 ' #txt
 Vs0 f3 actionTable 'out=in;
 ' #txt
@@ -63,15 +63,15 @@ Vs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Vs0 f3 83 147 26 26 -15 12 #rect
 Vs0 f3 @|RichDialogProcessStartIcon #fIcon
-Vs0 f4 type feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData #txt
+Vs0 f4 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 Vs0 f4 guid 15AF444F7952916A #txt
 Vs0 f4 211 147 26 26 0 12 #rect
 Vs0 f4 @|RichDialogEndIcon #fIcon
 Vs0 f5 expr out #txt
 Vs0 f5 109 160 211 160 #arcP
 Vs0 f6 guid 15B559CEA824ED2F #txt
-Vs0 f6 type feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData #txt
-Vs0 f6 actionDecl 'feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData out;
+Vs0 f6 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
+Vs0 f6 actionDecl 'feed.me.online.form.OrderingManagerForm.OrderingManagerFormData out;
 ' #txt
 Vs0 f6 actionTable 'out=in;
 ' #txt
@@ -86,12 +86,12 @@ Vs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Vs0 f6 83 275 26 26 -69 15 #rect
 Vs0 f6 @|RichDialogProcessStartIcon #fIcon
-Vs0 f7 type feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData #txt
+Vs0 f7 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 Vs0 f7 259 275 26 26 0 12 #rect
 Vs0 f7 @|RichDialogProcessEndIcon #fIcon
 Vs0 f8 expr out #txt
 Vs0 f8 109 288 259 288 #arcP
->Proto Vs0 .type feed.me.online.form.ViewAllOrderingForm.ViewAllOrderingFormData #txt
+>Proto Vs0 .type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 >Proto Vs0 .processKind HTML_DIALOG #txt
 >Proto Vs0 -8 -8 16 16 16 26 #rect
 >Proto Vs0 '' #fIcon

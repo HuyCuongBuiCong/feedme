@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<cc:interface componentType="IvyComponent">
+	<cc:attribute name="roleName" required="true"
+		shortDescription="Role of current user" />
+	<cc:attribute name="orderingDetail" />
+</cc:interface>
+
+<cc:implementation>
+	<div class="ordering-detail">
+		<div class="ordering-header">
+			<span style="font-size: 24px;">#{ivy.cms.co('/Labels/OrderingDetail')}</span>
+			<span jsf:rendered="#{cc.attrs.roleName == 'Ordering Manager'}"
+				style="float: right"> <p:button
+					value="#{ivy.cms.co('/Labels/Purchase')}" /> <p:button
+					value="#{ivy.cms.co('/Labels/Delete')}" /> <p:button
+					value="#{ivy.cms.co('/Labels/MyOrder')}" />
+			</span> <span jsf:rendered="#{cc.attrs.roleName == 'Purchasing Manager'}"
+				style="float: right"> <p:button
+					value="#{ivy.cms.co('/Labels/Approve')}" /> <p:button
+					value="#{ivy.cms.co('/Labels/Reject')}" />
+			</span>
+		</div>
+		<div class="ordering-body">
+			<p:panelGrid columns="3">
+				<p:outputLabel
+					value="#{ivy.cms.co('/Labels/Restauran')}: #{cc.attrs.orderingDetail.restaurantName}" />
+				<p:outputLabel
+					value="#{ivy.cms.co('/Labels/Website')}: #{cc.attrs.orderingDetail.website}" />
+				<p:outputLabel
+					value="#{ivy.cms.co('/Labels/Phone')}: #{cc.attrs.orderingDetail.phone}" />
+				<p:outputLabel value="#{ivy.cms.co('/Labels/CreetedDate')}: #{cc.attrs.orderingDetail.createdDate}" />
+				<p:outputLabel
+					value="#{ivy.cms.co('/Labels/Total')}: " />
+			</p:panelGrid>
+			 <p:dataList value="#{cc.attrs.orderingDetail.orderingDetailItems}"
+				var="orderingDetailItem">
+				<div style="width: 50px;">
+					<div>#{orderingDetailItem.foodItem.name}</div>
+					<div>#{orderingDetailItem.numberOfUnits}</div>
+				</div>
+				<div>
+					<div>
+						<p:outputLabel
+							value="#{ivy.cms.co('/Labels/Price')}: #{orderingDetailItem.foodItem.price} vnd" />
+					</div>
+					<div>
+						<p:outputLabel value="#{ivy.cms.co('/Labels/Whose')}: #{orderingDetailItem.usernames}"/>
+					</div>
+				</div>
+				<div></div>
+			</p:dataList>
+		</div>
+	</div>
+</cc:implementation>
+</html>

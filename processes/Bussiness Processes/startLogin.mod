@@ -82,7 +82,7 @@ sn0 f4 expr out #txt
 sn0 f4 111 64 168 64 #arcP
 sn0 f9 targetWindow NEW #txt
 sn0 f9 targetDisplay TOP #txt
-sn0 f9 richDialogId feed.me.online.form.ViewAllOrderingForm #txt
+sn0 f9 richDialogId feed.me.online.form.OrderingManagerForm #txt
 sn0 f9 startMethod start() #txt
 sn0 f9 type feed.me.online.Data #txt
 sn0 f9 requestActionDecl '<> param;' #txt
@@ -114,7 +114,7 @@ sn0 f11 752 170 112 44 0 -8 #rect
 sn0 f11 @|RichDialogIcon #fIcon
 sn0 f12 targetWindow NEW #txt
 sn0 f12 targetDisplay TOP #txt
-sn0 f12 richDialogId feed.me.online.form.PurchasingForm #txt
+sn0 f12 richDialogId feed.me.online.form.PurchasingManagerForm #txt
 sn0 f12 startMethod start() #txt
 sn0 f12 type feed.me.online.Data #txt
 sn0 f12 requestActionDecl '<> param;' #txt
