@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Apr 10 15:33:40 ICT 2017]
+[>Created: Mon Apr 10 09:07:05 ICT 2017]
 15AF444F77252180 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 OrderingManagerFormProcess Big #zClass
@@ -17,15 +17,13 @@ Vs0 @TextInP .xml .xml #zField
 Vs0 @TextInP .responsibility .responsibility #zField
 Vs0 @RichDialogInitStart f0 '' #zField
 Vs0 @RichDialogProcessEnd f1 '' #zField
+Vs0 @PushWFArc f2 '' #zField
 Vs0 @RichDialogProcessStart f3 '' #zField
 Vs0 @RichDialogEnd f4 '' #zField
 Vs0 @PushWFArc f5 '' #zField
 Vs0 @RichDialogProcessStart f6 '' #zField
 Vs0 @RichDialogProcessEnd f7 '' #zField
 Vs0 @PushWFArc f8 '' #zField
-Vs0 @GridStep f9 '' #zField
-Vs0 @PushWFArc f10 '' #zField
-Vs0 @PushWFArc f2 '' #zField
 >Proto Vs0 Vs0 OrderingManagerFormProcess #zField
 Vs0 f0 guid 15AF444F787D2C49 #txt
 Vs0 f0 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
@@ -46,8 +44,10 @@ Vs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Vs0 f0 83 51 26 26 -16 15 #rect
 Vs0 f0 @|RichDialogInitStartIcon #fIcon
 Vs0 f1 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
-Vs0 f1 339 51 26 26 0 12 #rect
+Vs0 f1 211 51 26 26 0 12 #rect
 Vs0 f1 @|RichDialogProcessEndIcon #fIcon
+Vs0 f2 expr out #txt
+Vs0 f2 109 64 211 64 #arcP
 Vs0 f3 guid 15AF444F795DA38C #txt
 Vs0 f3 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 Vs0 f3 actionDecl 'feed.me.online.form.OrderingManagerForm.OrderingManagerFormData out;
@@ -91,37 +91,13 @@ Vs0 f7 259 275 26 26 0 12 #rect
 Vs0 f7 @|RichDialogProcessEndIcon #fIcon
 Vs0 f8 expr out #txt
 Vs0 f8 109 288 259 288 #arcP
-Vs0 f9 actionDecl 'feed.me.online.form.OrderingManagerForm.OrderingManagerFormData out;
-' #txt
-Vs0 f9 actionTable 'out=in;
-' #txt
-Vs0 f9 actionCode 'import feed.me.online.utils.CreateSampleData;
-in.orderingTikets = CreateSampleData.createOrderingTicketList();' #txt
-Vs0 f9 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
-Vs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Init sample data</name>
-        <nameStyle>16,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Vs0 f9 160 42 112 44 -44 -8 #rect
-Vs0 f9 @|StepIcon #fIcon
-Vs0 f10 expr out #txt
-Vs0 f10 109 64 160 64 #arcP
-Vs0 f2 expr out #txt
-Vs0 f2 272 64 339 64 #arcP
 >Proto Vs0 .type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 >Proto Vs0 .processKind HTML_DIALOG #txt
 >Proto Vs0 -8 -8 16 16 16 26 #rect
 >Proto Vs0 '' #fIcon
+Vs0 f0 mainOut f2 tail #connect
+Vs0 f2 head f1 mainIn #connect
 Vs0 f3 mainOut f5 tail #connect
 Vs0 f5 head f4 mainIn #connect
 Vs0 f6 mainOut f8 tail #connect
 Vs0 f8 head f7 mainIn #connect
-Vs0 f0 mainOut f10 tail #connect
-Vs0 f10 head f9 mainIn #connect
-Vs0 f9 mainOut f2 tail #connect
-Vs0 f2 head f1 mainIn #connect
