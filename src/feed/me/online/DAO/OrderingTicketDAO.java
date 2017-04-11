@@ -25,14 +25,11 @@ public class OrderingTicketDAO extends BasicDAO {
 	
 	public void save(Restaurant restaurant, List<FoodItem> foodItems, Boolean orderOutOfListFood){
 		OrderingTicket orderingTicket = new OrderingTicket();
-		if (restaurant.getId() == null || restaurant.getId() == 0){
-			restaurantDAO.save(restaurant);
-		}
-		//orderingTicket.setRestaurant(restaurant);
+		orderingTicket.setRestaurant(restaurant);
 		orderingTicket.setFoodItems(foodItems);
 		orderingTicket.setStatus(TicketStatus.created.getTicketStatus());
 		orderingTicket.setOrderOutOfListFood(orderOutOfListFood);
 		orderingTicket.setCreatedDate(new Date());
-		save(orderingTicket);
+		this.getEntityManager().merge(orderingTicket);
 	}
 }
