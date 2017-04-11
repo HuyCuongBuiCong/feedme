@@ -14,3 +14,5 @@ foodItem feed.me.online.entity.FoodItem #field
 foodItem PERSISTENT #fieldModifier
 selectedFoodItem feed.me.online.entity.FoodItem #field
 selectedFoodItem PERSISTENT #fieldModifier
+orderOutOfListFood Boolean #field
+orderOutOfListFood PERSISTENT #fieldModifier

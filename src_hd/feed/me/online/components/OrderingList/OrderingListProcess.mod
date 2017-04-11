@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 16:22:11 ICT 2017]
+[>Created: Tue Apr 11 17:49:57 ICT 2017]
 15B55B49FB54294B 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderingListProcess Big #zClass
@@ -30,7 +30,6 @@ Os0 @RichDialogProcessStart f11 '' #zField
 Os0 @RichDialogProcessEnd f12 '' #zField
 Os0 @RichDialogProcessStart f14 '' #zField
 Os0 @RichDialogProcessEnd f15 '' #zField
-Os0 @PushWFArc f16 '' #zField
 Os0 @RichDialogProcessStart f17 '' #zField
 Os0 @RichDialogProcessEnd f18 '' #zField
 Os0 @PushWFArc f19 '' #zField
@@ -55,6 +54,9 @@ Os0 @RichDialogProcessEnd f36 '' #zField
 Os0 @GridStep f37 '' #zField
 Os0 @PushWFArc f38 '' #zField
 Os0 @PushWFArc f39 '' #zField
+Os0 @GridStep f40 '' #zField
+Os0 @PushWFArc f41 '' #zField
+Os0 @PushWFArc f16 '' #zField
 >Proto Os0 Os0 OrderingListProcess #zField
 Os0 f0 guid 15B55BA58166B560 #txt
 Os0 f0 type feed.me.online.components.OrderingList.OrderingListData #txt
@@ -96,30 +98,18 @@ Os0 f6 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
 ' #txt
 Os0 f6 actionTable 'out=in;
 ' #txt
-Os0 f6 actionCode 'import java.util.HashSet;
+Os0 f6 actionCode 'import feed.me.online.DAO.RestaurantDAO;
+import java.util.HashSet;
 import feed.me.online.entity.FoodItem;
 import ch.ivyteam.ivy.environment.Ivy;
 import feed.me.online.entity.Restaurant;
 import java.util.ArrayList;
 
+RestaurantDAO restaurantDAO = new RestaurantDAO();
+in.restaurants = restaurantDAO.getAll();
+
 in.foodItem = new FoodItem();
 in.foodItems = new HashSet<FoodItem>();
-
-in.restaurants = new ArrayList<Restaurant>();
-Restaurant res1 = new Restaurant();
-res1.setId(1);
-res1.setName("Restaurant 1");
-res1.setPhone("123456");
-res1.setWebsite("abc.com.vn");
-
-Restaurant res2 = new Restaurant();
-res2.setId(2);
-res2.setName("Restaurant 2");
-res2.setPhone("222222");
-res2.setWebsite("def.com.vn");
-
-in.restaurants.add(res1);
-in.restaurants.add(res2);
 
 in.selectedRestaurant = new Restaurant();
 ' #txt
@@ -202,11 +192,8 @@ Os0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Os0 f14 80 474 26 26 -53 15 #rect
 Os0 f14 @|RichDialogProcessStartIcon #fIcon
 Os0 f15 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f15 240 474 26 26 0 12 #rect
+Os0 f15 408 474 26 26 0 12 #rect
 Os0 f15 @|RichDialogProcessEndIcon #fIcon
-Os0 f16 expr out #txt
-Os0 f16 106 487 240 487 #arcP
-Os0 f16 0 0.5000000000000001 0 0 #arcLabel
 Os0 f17 guid 15B575C7746225EA #txt
 Os0 f17 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f17 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
@@ -379,6 +366,34 @@ Os0 f38 expr out #txt
 Os0 f38 93 1032 152 1032 #arcP
 Os0 f39 expr out #txt
 Os0 f39 264 1032 307 1032 #arcP
+Os0 f40 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
+' #txt
+Os0 f40 actionTable 'out=in;
+' #txt
+Os0 f40 actionCode 'import feed.me.online.DAO.OrderingTicketDAO;
+
+OrderingTicketDAO orderingTicketDAO = new OrderingTicketDAO();
+
+orderingTicketDAO.save(in.selectedRestaurant,in.foodItems.toArray(),in.orderOutOfListFood);
+' #txt
+Os0 f40 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Save ordering ticket</name>
+        <nameStyle>20,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f40 184 464 144 48 -53 -8 #rect
+Os0 f40 @|StepIcon #fIcon
+Os0 f41 expr out #txt
+Os0 f41 105 487 184 488 #arcP
+Os0 f41 0 0.5000000000000001 0 0 #arcLabel
+Os0 f16 expr out #txt
+Os0 f16 328 488 408 487 #arcP
+Os0 f16 0 0.5000000000000001 0 0 #arcLabel
 >Proto Os0 .type feed.me.online.components.OrderingList.OrderingListData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -391,8 +406,6 @@ Os0 f6 mainOut f2 tail #connect
 Os0 f2 head f1 mainIn #connect
 Os0 f8 mainOut f10 tail #connect
 Os0 f10 head f9 mainIn #connect
-Os0 f14 mainOut f16 tail #connect
-Os0 f16 head f15 mainIn #connect
 Os0 f17 mainOut f19 tail #connect
 Os0 f19 head f18 mainIn #connect
 Os0 f11 mainOut f13 tail #connect
@@ -413,3 +426,7 @@ Os0 f35 mainOut f38 tail #connect
 Os0 f38 head f37 mainIn #connect
 Os0 f37 mainOut f39 tail #connect
 Os0 f39 head f36 mainIn #connect
+Os0 f14 mainOut f41 tail #connect
+Os0 f41 head f40 mainIn #connect
+Os0 f40 mainOut f16 tail #connect
+Os0 f16 head f15 mainIn #connect

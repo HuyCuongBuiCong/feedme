@@ -30,13 +30,38 @@
 	                <p:inputText id="restaurantPhone" value="#{data.selectedRestaurant.phone}" style="width: 150px;"/>
          
              		<h:outputText value="" />            
-          			<p:selectBooleanCheckbox value="" itemLabel="Order out of food list"/>              
+          			<p:selectBooleanCheckbox value="#{data.orderOutOfListFood}" itemLabel="Order out of food list"/>              
          			</h:panelGrid>
          
          
-         		<h:panelGrid cellpadding="10" cellspacing="10">
+         	<div class="container-fluid">
+         	<div class="row">
+         		<div class="col-xs-6">
+         									<h:outputLabel for="foodName" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/foodName')}" />
+         		</div>
+         		<div class="col-xs-3">
+         									<h:outputLabel for="foodPrice" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/foodPrice')}" />
+         		
+         		</div>
+         		<div class="col-xs-3"></div>
+         	</div>
+         	<div class="row">
+         		<div class="col-xs-6">
+         									<p:inputText id="foodName" value="#{data.foodItem.name}"/>
+         		</div>
+         		<div class="col-xs-3">
+         					            	<pe:inputNumber id="foodPrice" value="#{data.foodItem.price}"/>
+         		</div>
+         		<div class="col-xs-3">
+         					            	<p:commandButton value="Add" actionListener="#{logic.addFoodItem}" update="@form"/>
+         		</div>
+         	</div>
+         	
+         	</div>
+         		
+         		<!-- <p:panelGrid cellpadding="10" cellspacing="10">
 		            <p:row>
-						<p:column>
+						<p:column colspan="2">
 							<h:outputLabel for="foodName" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/foodName')}" />
 						</p:column>
 						<p:column>
@@ -48,7 +73,7 @@
 					</p:row>
 					
 					<p:row>
-						<p:column>
+						<p:column colspan="2">
 							<p:inputText id="foodName" value="#{data.foodItem.name}" style="width: 250x;"/>
 						</p:column>
 						<p:column>
@@ -58,7 +83,7 @@
 			            	<p:commandButton value="Add" actionListener="#{logic.addFoodItem}" update="@form"/>
 			            </p:column>
 					</p:row>
-				</h:panelGrid>
+				</p:panelGrid> -->
 		 		
 				<!-- <h:panelGrid columns="1" cellpadding="10"> -->
               		<p:dataTable id="foodItemsTable" value="#{data.foodItems}" var="foodItem" style="width: 420px;" scrollable="true" 
