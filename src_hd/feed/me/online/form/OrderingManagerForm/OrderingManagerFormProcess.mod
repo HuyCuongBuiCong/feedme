@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 16:19:55 ICT 2017]
+[>Created: Tue Apr 11 17:11:56 ICT 2017]
 15AF444F77252180 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 OrderingManagerFormProcess Big #zClass
@@ -95,18 +95,23 @@ Vs0 f9 actionDecl 'feed.me.online.form.OrderingManagerForm.OrderingManagerFormDa
 ' #txt
 Vs0 f9 actionTable 'out=in;
 ' #txt
-Vs0 f9 actionCode 'import feed.me.online.loginassist.LoginValidation;
+Vs0 f9 actionCode 'import feed.me.online.DAO.OrderingTicketDAO;
+import feed.me.online.loginassist.LoginValidation;
 import feed.me.online.utils.OrderingTicketUtil;
 import feed.me.online.utils.CreateSampleData;
 import feed.me.online.model.OrderingManagerModel;
+
+CreateSampleData.createSampleData();
+OrderingTicketDAO orderingTicketDAO = new OrderingTicketDAO();
 in.orderingManagerModel = new OrderingManagerModel();
-in.orderingManagerModel.orderingTickets = CreateSampleData.createOrderingTicketList();
+in.orderingManagerModel.orderingTickets =  orderingTicketDAO.getAll();
 OrderingTicketUtil.sortByDate(in.orderingManagerModel.orderingTickets);
 in.orderingManagerModel.selectedOrderingTicket = in.orderingManagerModel.orderingTickets.get(0);
 in.orderingManagerModel.total = CreateSampleData.calculateTotalPrice(in.orderingManagerModel.selectedOrderingTicket);
 in.orderingManagerModel.orderingDetailLineItems = CreateSampleData.initOrderingDetailLineItemsFor(in.orderingManagerModel.selectedOrderingTicket);
+in.role = LoginValidation.getRole();
 
-in.role = LoginValidation.getRole();' #txt
+' #txt
 Vs0 f9 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 Vs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

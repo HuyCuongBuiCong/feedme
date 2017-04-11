@@ -11,13 +11,25 @@ import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
 
+import feed.me.online.DAO.OrderingTicketDAO;
 import feed.me.online.entity.FoodItem;
 import feed.me.online.entity.FoodOrder;
 import feed.me.online.entity.OrderingTicket;
 import feed.me.online.entity.Restaurant;
+import feed.me.online.enums.TicketStatus;
 import feed.me.online.model.OrderingDetailLineItem;
 
 public class CreateSampleData {
+
+	public static void createSampleData() {
+		OrderingTicketDAO orderingTicketDAO = new OrderingTicketDAO();
+		if (orderingTicketDAO.getAll().size() < 3) {
+			for (OrderingTicket orderingTicket : createOrderingTicketList()) {
+
+				orderingTicketDAO.save(orderingTicket);
+			}
+		}
+	}
 
 	public static List<OrderingTicket> createOrderingTicketList() {
 		List<OrderingTicket> orderingTickets = new ArrayList<>();
@@ -51,22 +63,25 @@ public class CreateSampleData {
 		bugerKingRestaurant.setWebsite("www.BugerKing.com");
 
 		OrderingTicket orderingTicket1 = new OrderingTicket();
-		orderingTicket1.setId(1);
 		orderingTicket1.setCreatedDate(date1);
-		orderingTicket1.setFoodItems(createListOfFoodItem1());
+		orderingTicket1.setFoodItems(createListOfFoodItem1(orderingTicket1));
 		orderingTicket1.setRestaurant(smoothiesRestaurant);
+		orderingTicket1.setStatus(TicketStatus.created.getTicketStatus());
+		orderingTicket1.setOrderOutOfListFood(false);
 
 		OrderingTicket orderingTicket2 = new OrderingTicket();
-		orderingTicket2.setId(2);
 		orderingTicket2.setCreatedDate(date2);
-		orderingTicket2.setFoodItems(createListOfFoodItem2());
+		orderingTicket2.setFoodItems(createListOfFoodItem2(orderingTicket2));
 		orderingTicket2.setRestaurant(dominoRestaurant);
+		orderingTicket2.setStatus(TicketStatus.created.getTicketStatus());
+		orderingTicket2.setOrderOutOfListFood(false);
 
 		OrderingTicket orderingTicket3 = new OrderingTicket();
-		orderingTicket3.setId(3);
 		orderingTicket3.setCreatedDate(date3);
-		orderingTicket3.setFoodItems(createListOfFoodItem3());
+		orderingTicket3.setFoodItems(createListOfFoodItem3(orderingTicket3));
 		orderingTicket3.setRestaurant(bugerKingRestaurant);
+		orderingTicket3.setStatus(TicketStatus.created.getTicketStatus());
+		orderingTicket3.setOrderOutOfListFood(false);
 
 		orderingTickets.add(orderingTicket1);
 		orderingTickets.add(orderingTicket2);
@@ -74,32 +89,39 @@ public class CreateSampleData {
 		return orderingTickets;
 	}
 
-	public static List<FoodItem> createListOfFoodItem1() {
+	public static List<FoodItem> createListOfFoodItem1(
+			OrderingTicket orderingTicket) {
 		List<FoodItem> fooditems = new ArrayList<>();
 
 		FoodItem foodItem1 = new FoodItem();
 		foodItem1.setName("Mango");
 		foodItem1.setPrice(20f);
+		foodItem1.setOrderingTicket(orderingTicket);
 
 		FoodItem foodItem2 = new FoodItem();
 		foodItem2.setName("Avocado");
 		foodItem2.setPrice(30f);
+		foodItem2.setOrderingTicket(orderingTicket);
 
 		fooditems.add(foodItem1);
 		fooditems.add(foodItem2);
+		foodItem2.setOrderingTicket(orderingTicket);
 		return fooditems;
 	}
 
-	public static List<FoodItem> createListOfFoodItem2() {
+	public static List<FoodItem> createListOfFoodItem2(
+			OrderingTicket orderingTicket) {
 		List<FoodItem> fooditems = new ArrayList<>();
 
 		FoodItem foodItem1 = new FoodItem();
 		foodItem1.setName("Strawberry");
 		foodItem1.setPrice(80f);
+		foodItem1.setOrderingTicket(orderingTicket);
 
 		FoodItem foodItem2 = new FoodItem();
 		foodItem2.setName("Banana");
 		foodItem2.setPrice(40f);
+		foodItem2.setOrderingTicket(orderingTicket);
 		createListOfFoodOrderFor(foodItem2);
 
 		fooditems.add(foodItem1);
@@ -107,17 +129,20 @@ public class CreateSampleData {
 		return fooditems;
 	}
 
-	public static List<FoodItem> createListOfFoodItem3() {
+	public static List<FoodItem> createListOfFoodItem3(
+			OrderingTicket orderingTicket) {
 		List<FoodItem> fooditems = new ArrayList<>();
 
 		FoodItem foodItem1 = new FoodItem();
 		foodItem1.setName("Jack Fruit");
 		foodItem1.setPrice(86f);
+		foodItem1.setOrderingTicket(orderingTicket);
 		createListOfFoodOrderFor(foodItem1);
 
 		FoodItem foodItem2 = new FoodItem();
 		foodItem2.setName("Tomato");
 		foodItem2.setPrice(45f);
+		foodItem2.setOrderingTicket(orderingTicket);
 
 		fooditems.add(foodItem1);
 		fooditems.add(foodItem2);
@@ -148,14 +173,17 @@ public class CreateSampleData {
 		return totalPrice;
 	}
 
-	public static List<OrderingDetailLineItem> initOrderingDetailLineItemsFor(OrderingTicket orderingTicket) {
+	public static List<OrderingDetailLineItem> initOrderingDetailLineItemsFor(
+			OrderingTicket orderingTicket) {
 		List<OrderingDetailLineItem> orderingDetailLineItems = new ArrayList<>();
 		for (FoodItem foodItem : orderingTicket.getFoodItems()) {
 			Set<FoodOrder> foodOrders = foodItem.getFoodOrders();
 			if (CollectionUtils.isNotEmpty(foodOrders)) {
 				OrderingDetailLineItem orderingDetailLineItem = new OrderingDetailLineItem();
 				orderingDetailLineItem.setFoodItem(foodItem);
-				orderingDetailLineItem.setNumberOfUnit(foodOrders != null ? foodOrders.size() : 0);
+				orderingDetailLineItem
+						.setNumberOfUnit(foodOrders != null ? foodOrders.size()
+								: 0);
 				orderingDetailLineItem.setWhose(getOrderingUsernames(foodItem));
 				orderingDetailLineItems.add(orderingDetailLineItem);
 			}
