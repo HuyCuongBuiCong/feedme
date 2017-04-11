@@ -3,15 +3,19 @@ package feed.me.online.utils;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import feed.me.online.entity.FoodItem;
 import feed.me.online.entity.FoodOrder;
 import feed.me.online.entity.OrderingTicket;
 import feed.me.online.entity.Restaurant;
+import feed.me.online.model.OrderingDetailLineItem;
 
 public class CreateSampleData {
 
@@ -135,12 +139,41 @@ public class CreateSampleData {
 		foodOrders.add(foodOrder2);
 		foodItem.setFoodOrders(foodOrders);
 	}
-	
-	public static float calculateTotalPrice(OrderingTicket orderingTicket){
+
+	public static float calculateTotalPrice(OrderingTicket orderingTicket) {
 		float totalPrice = 0;
 		for (FoodItem item : orderingTicket.getFoodItems()) {
 			totalPrice += item.getPrice();
 		}
 		return totalPrice;
+	}
+
+	public static List<OrderingDetailLineItem> initOrderingDetailLineItemsFor(OrderingTicket orderingTicket) {
+		List<OrderingDetailLineItem> orderingDetailLineItems = new ArrayList<>();
+		for (FoodItem foodItem : orderingTicket.getFoodItems()) {
+			Set<FoodOrder> foodOrders = foodItem.getFoodOrders();
+			if (CollectionUtils.isNotEmpty(foodOrders)) {
+				OrderingDetailLineItem orderingDetailLineItem = new OrderingDetailLineItem();
+				orderingDetailLineItem.setFoodItem(foodItem);
+				orderingDetailLineItem.setNumberOfUnit(foodOrders != null ? foodOrders.size() : 0);
+				orderingDetailLineItem.setWhose(getOrderingUsernames(foodItem));
+				orderingDetailLineItems.add(orderingDetailLineItem);
+			}
+		}
+		return orderingDetailLineItems;
+	}
+
+	private static String getOrderingUsernames(FoodItem foodItem) {
+		if (foodItem == null) {
+			return "";
+		}
+		if (foodItem.getFoodOrders() == null) {
+			return "";
+		}
+		List<String> usernameList = new ArrayList<>();
+		for (FoodOrder foodOrder : foodItem.getFoodOrders()) {
+			usernameList.add(foodOrder.getUsername());
+		}
+		return String.join(",", usernameList);
 	}
 }

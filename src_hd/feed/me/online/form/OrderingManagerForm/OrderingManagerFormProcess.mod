@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 14:45:24 ICT 2017]
+[>Created: Tue Apr 11 16:19:55 ICT 2017]
 15AF444F77252180 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 OrderingManagerFormProcess Big #zClass
@@ -104,6 +104,7 @@ in.orderingManagerModel.orderingTickets = CreateSampleData.createOrderingTicketL
 OrderingTicketUtil.sortByDate(in.orderingManagerModel.orderingTickets);
 in.orderingManagerModel.selectedOrderingTicket = in.orderingManagerModel.orderingTickets.get(0);
 in.orderingManagerModel.total = CreateSampleData.calculateTotalPrice(in.orderingManagerModel.selectedOrderingTicket);
+in.orderingManagerModel.orderingDetailLineItems = CreateSampleData.initOrderingDetailLineItemsFor(in.orderingManagerModel.selectedOrderingTicket);
 
 in.role = LoginValidation.getRole();' #txt
 Vs0 f9 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt

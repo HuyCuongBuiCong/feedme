@@ -1,0 +1,8 @@
+OrderingDetailLineItem #class
+feed.me.online.model #namespace
+foodItem feed.me.online.entity.FoodItem #field
+foodItem PERSISTENT #fieldModifier
+numberOfUnit Integer #field
+numberOfUnit PERSISTENT #fieldModifier
+whose String #field
+whose PERSISTENT #fieldModifier

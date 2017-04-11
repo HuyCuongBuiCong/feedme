@@ -43,19 +43,19 @@
 					value="#{ivy.cms.co('/Labels/CreetedDate')}: #{cc.attrs.orderingDetail.selectedOrderingTicket.createdDate}" />
 				<p:outputLabel value="#{ivy.cms.co('/Labels/Total')}: #{cc.attrs.orderingDetail.total} vnd" />
 			</p:panelGrid>
-			 <p:dataList value="#{cc.attrs.orderingDetail.selectedOrderingTicket.foodItems}"
+			 <p:dataList value="#{cc.attrs.orderingDetail.orderingDetailLineItems}"
 				var="orderingDetailItem">
 				<div class="row">
 					<div class="item-header">
-						<div>#{orderingDetailItem.name}</div>
-						<div>1</div>
+						<div>#{orderingDetailItem.foodItem.name}</div>
+						<div>#{orderingDetailItem.numberOfUnit}</div>
 					</div>
 					<div class="item-content">
 						<div>
-							<p:outputLabel value="Price: #{orderingDetailItem.price} vnd" />
+							<p:outputLabel value="Price: #{orderingDetailItem.foodItem.price} vnd" />
 						</div>
 						<div>
-							<p:outputLabel value="Whose: xxx" />
+							<p:outputLabel value="Whose: #{orderingDetailItem.whose}" />
 						</div>
 					</div>
 				</div>
