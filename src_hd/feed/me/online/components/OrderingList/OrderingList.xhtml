@@ -29,7 +29,7 @@
 
 					<div class="form-group"></div>
 					<button
-						jsf:styleClass="btn btn-default btn-block text-left btn-primary"
+						jsf:styleClass="btn btn-default btn-block text-left  #{cc.attrs.selectedOrderingTicket.id == orderingTicket.id ? 'btn-primary':'btn-default'}"
 						jsf:update="orderingDetailForm">
 						#{orderingTicket.restaurant.name}
 						<f:setPropertyActionListener value="#{orderingTicket}"

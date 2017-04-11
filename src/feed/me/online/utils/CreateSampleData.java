@@ -38,16 +38,19 @@ public class CreateSampleData {
 	bugerKingRestaurant.setName("BugerKing Restaurant");
 	 
 	 OrderingTicket orderingTicket1 = new OrderingTicket();
+	 orderingTicket1.setId(1);
 	 orderingTicket1.setCreatedDate(date1);
 	 orderingTicket1.setFoodItems(createListOfFoodItem1());
 	 orderingTicket1.setRestaurant(smoothiesRestaurant);
 	
 	 OrderingTicket orderingTicket2 = new OrderingTicket();
+	 orderingTicket2.setId(2);
 	 orderingTicket2.setCreatedDate(date2);
 	 orderingTicket2.setFoodItems(createListOfFoodItem2());
 	 orderingTicket2.setRestaurant(dominoRestaurant);
 	 
 	 OrderingTicket orderingTicket3 = new OrderingTicket();
+	 orderingTicket3.setId(3);
 	 orderingTicket3.setCreatedDate(date3);
 	 orderingTicket3.setFoodItems(createListOfFoodItem3());
 	 orderingTicket3.setRestaurant(bugerKingRestaurant);

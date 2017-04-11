@@ -10,26 +10,28 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">OrderingManagerForm</ui:define>
 		<ui:define name="content">
-			<h:form id="form">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-4">
+						<ic:feed.me.online.components.OrderingList
+							orderingTickets="#{data.orderingManagerModel.orderingTickets}"
+							selectedOrderingTicket="#{data.orderingManagerModel.selectedOrderingTicket}"
+							startMethod="startWithOrderingTickets">
+						</ic:feed.me.online.components.OrderingList>
+					</div>
 
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xs-4">
-							<ic:feed.me.online.components.OrderingList
-								orderingTickets="#{data.orderingManagerModel.orderingTickets}"
-								startMethod="startWithOrderingTickets">
-							</ic:feed.me.online.components.OrderingList>
-						</div>
-						<div class="col-xs-7">
-							<h:form id="orderingDetailForm">
-								<ic:feed.me.online.components.OrderingDetail
+					<div class="col-xs-7">
+						<h:form id="orderingDetailForm">
+							<ic:feed.me.online.components.OrderingDetail
 								roleName="#{data.role.name}"
 								orderingDetail="#{data.orderingManagerModel.selectedOrderingTicket}" />
-							</h:form>
-						</div>
+
+						</h:form>
 					</div>
+
 				</div>
-			</h:form>
+			</div>
+
 
 		</ui:define>
 	</ui:composition>
