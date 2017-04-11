@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Apr 10 17:23:50 ICT 2017]
+[>Created: Tue Apr 11 10:56:39 ICT 2017]
 15B55B49FB54294B 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderingListProcess Big #zClass
@@ -28,13 +28,13 @@ Os0 @RichDialogProcessEnd f9 '' #zField
 Os0 @PushWFArc f10 '' #zField
 Os0 @RichDialogProcessStart f11 '' #zField
 Os0 @RichDialogProcessEnd f12 '' #zField
-Os0 @PushWFArc f13 '' #zField
 Os0 @RichDialogProcessStart f14 '' #zField
 Os0 @RichDialogProcessEnd f15 '' #zField
 Os0 @PushWFArc f16 '' #zField
 Os0 @RichDialogProcessStart f17 '' #zField
 Os0 @RichDialogProcessEnd f18 '' #zField
 Os0 @PushWFArc f19 '' #zField
+Os0 @PushWFArc f13 '' #zField
 >Proto Os0 Os0 OrderingListProcess #zField
 Os0 f0 guid 15B55BA58166B560 #txt
 Os0 f0 type feed.me.online.components.OrderingList.OrderingListData #txt
@@ -76,15 +76,35 @@ Os0 f6 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
 ' #txt
 Os0 f6 actionTable 'out=in;
 ' #txt
+Os0 f6 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
+import feed.me.online.entity.Restaurant;
+import java.util.ArrayList;
+
+
+in.restaurants = new ArrayList<Restaurant>();
+Ivy.log().debug("init XXX");
+Restaurant res1 = new Restaurant();
+res1.setId(1);
+res1.setName("restaurant name");
+res1.setPhone("235614555");
+res1.setWebsite("abc.com.vn");
+Ivy.log().debug("init XXX: "+ res1);
+in.restaurants.add(res1);
+in.selectedRestaurant = res1;
+
+in.selectedRestaurant = new Restaurant();
+' #txt
 Os0 f6 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name></name>
+        <name>Init Data</name>
+        <nameStyle>9,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Os0 f6 168 42 112 44 0 -8 #rect
+Os0 f6 168 42 112 44 -22 -8 #rect
 Os0 f6 @|StepIcon #fIcon
 Os0 f7 expr out #txt
 Os0 f7 109 64 168 64 #arcP
@@ -133,10 +153,8 @@ Os0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Os0 f11 83 371 26 26 -69 15 #rect
 Os0 f11 @|RichDialogProcessStartIcon #fIcon
 Os0 f12 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f12 243 371 26 26 0 12 #rect
+Os0 f12 259 371 26 26 0 12 #rect
 Os0 f12 @|RichDialogProcessEndIcon #fIcon
-Os0 f13 expr out #txt
-Os0 f13 109 384 243 384 #arcP
 Os0 f14 guid 15B575C741423E79 #txt
 Os0 f14 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f14 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
@@ -183,6 +201,8 @@ Os0 f18 @|RichDialogProcessEndIcon #fIcon
 Os0 f19 expr out #txt
 Os0 f19 101 606 243 606 #arcP
 Os0 f19 0 0.4999999999999999 0 0 #arcLabel
+Os0 f13 expr out #txt
+Os0 f13 109 384 259 384 #arcP
 >Proto Os0 .type feed.me.online.components.OrderingList.OrderingListData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -195,9 +215,9 @@ Os0 f6 mainOut f2 tail #connect
 Os0 f2 head f1 mainIn #connect
 Os0 f8 mainOut f10 tail #connect
 Os0 f10 head f9 mainIn #connect
-Os0 f11 mainOut f13 tail #connect
-Os0 f13 head f12 mainIn #connect
 Os0 f14 mainOut f16 tail #connect
 Os0 f16 head f15 mainIn #connect
 Os0 f17 mainOut f19 tail #connect
 Os0 f19 head f18 mainIn #connect
+Os0 f11 mainOut f13 tail #connect
+Os0 f13 head f12 mainIn #connect

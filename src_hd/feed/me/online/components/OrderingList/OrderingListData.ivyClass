@@ -2,3 +2,7 @@ OrderingListData #class
 feed.me.online.components.OrderingList #namespace
 orderingTickets java.util.List<feed.me.online.entity.OrderingTicket> #field
 orderingTickets PERSISTENT #fieldModifier
+restaurants List<feed.me.online.entity.Restaurant> #field
+restaurants PERSISTENT #fieldModifier
+selectedRestaurant feed.me.online.entity.Restaurant #field
+selectedRestaurant PERSISTENT #fieldModifier

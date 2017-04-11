@@ -11,13 +11,15 @@
 	<p:dialog header="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/createOrderingTicketDialogTitle')}" id="orderingTicket" visible="#{facesContext.validationFailed}" resizable="false"
 		widgetVar="orderingTicket" modal="true" appendTo="@(body)">
 		<h:form id="orderingTicketForm">
-					<h:panelGrid columns="2" cellpadding="10" cellspacing="100">						
+					<h:panelGrid columns="2" cellpadding="10" cellspacing="100">
+											
 					<h:outputLabel for="orderingTicketDataRestaurant" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/orderingTicketRestaurant')}" />
-					<p:selectOneMenu id="orderingTicketDataRestaurant" value="" style="width: 265px;" required="true">
- 							<f:selectItem itemLabel="New Restaurant" itemValue="" noSelectionOption="true" />
-							</p:selectOneMenu>
+					<p:selectOneMenu id="orderingTicketDataRestaurant" value="#{data.selectedRestaurant}" style="width: 265px;" required="true">
+ 						<f:selectItem itemLabel="New Restaurant" itemValue="0"/> 
+ 						<f:selectItems value="#{data.restaurants}" var="restaurant" itemLabel="#{restaurant.name}" itemValue="#{restaurant.id}"/>
+					</p:selectOneMenu>
 						
-							<h:outputLabel for="restaurantName" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/restaurantName')}" />
+					<h:outputLabel for="restaurantName" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/restaurantName')}" />
           		    	<p:inputText id="restaurantName" value="" style="width: 300px;" required="true"/>
   
              				<h:outputLabel for="restaurantWebsite" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/restaurantWebsite')}" />

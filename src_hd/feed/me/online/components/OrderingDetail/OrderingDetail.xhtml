@@ -20,30 +20,30 @@
 		<p:panel styleClass="ordering-header">
 			<span class="title">#{ivy.cms.co('/Labels/OrderingDetail')}</span>
 			<span jsf:rendered="#{cc.attrs.roleName == 'Ordering Manager'}"
-				style="float: right"> <p:button
-					value="#{ivy.cms.co('/Labels/Purchase')}" /> <p:button
-					value="#{ivy.cms.co('/Labels/Delete')}" /> <p:button
+				style="float: right"> <p:button styleClass="btn btn-primary"
+					value="#{ivy.cms.co('/Labels/Purchase')}" /> <p:button styleClass="btn btn-default"
+					value="#{ivy.cms.co('/Labels/Delete')}" /> <p:button styleClass="btn btn-default"
 					value="#{ivy.cms.co('/Labels/MyOrder')}" />
 			</span>
 			<span jsf:rendered="#{cc.attrs.roleName == 'Purchasing Manager'}"
-				style="float: right"> <p:button
-					value="#{ivy.cms.co('/Labels/Approve')}" /> <p:button
+				style="float: right"> <p:button styleClass="btn btn-primary"
+					value="#{ivy.cms.co('/Labels/Approve')}" /> <p:button styleClass="btn btn-default"
 					value="#{ivy.cms.co('/Labels/Reject')}" />
 			</span>
 		</p:panel>
 		<div class="ordering-body">
 			<p:panelGrid columns="3">
 				<p:outputLabel
-					value="#{ivy.cms.co('/Labels/Restauran')}: #{cc.attrs.orderingDetail.restaurant.name}" />
+					value="#{ivy.cms.co('/Labels/Restauran')}: #{cc.attrs.orderingDetail.selectedOrderingTicket.restaurant.name}" />
 				<p:outputLabel
-					value="#{ivy.cms.co('/Labels/Website')}: #{cc.attrs.orderingDetail.restaurant.website}" />
+					value="#{ivy.cms.co('/Labels/Website')}: #{cc.attrs.orderingDetail.selectedOrderingTicket.restaurant.website}" />
 				<p:outputLabel
-					value="#{ivy.cms.co('/Labels/Phone')}: #{cc.attrs.orderingDetail.restaurant.phone}" />
+					value="#{ivy.cms.co('/Labels/Phone')}: #{cc.attrs.orderingDetail.selectedOrderingTicket.restaurant.phone}" />
 				<p:outputLabel
-					value="#{ivy.cms.co('/Labels/CreetedDate')}: #{cc.attrs.orderingDetail.createdDate}" />
-				<p:outputLabel value="#{ivy.cms.co('/Labels/Total')}: " />
+					value="#{ivy.cms.co('/Labels/CreetedDate')}: #{cc.attrs.orderingDetail.selectedOrderingTicket.createdDate}" />
+				<p:outputLabel value="#{ivy.cms.co('/Labels/Total')}: #{cc.attrs.orderingDetail.total} vnd" />
 			</p:panelGrid>
-			<p:dataList value="#{cc.attrs.orderingDetail.foodItems}"
+			 <p:dataList value="#{cc.attrs.orderingDetail.selectedOrderingTicket.foodItems}"
 				var="orderingDetailItem">
 				<div class="row">
 					<div class="item-header">
@@ -60,7 +60,7 @@
 					</div>
 				</div>
 				<div></div>
-			</p:dataList>
+			</p:dataList> 
 		</div>
 	</div>
 	<h:outputStylesheet name="css/ordering-detail.css" />
