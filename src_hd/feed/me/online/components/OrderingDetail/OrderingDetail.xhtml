@@ -17,19 +17,20 @@
 
 <cc:implementation>
 	<div class="ordering-detail">
-		<div class="ordering-header">
-			<span style="font-size: 24px;">#{ivy.cms.co('/Labels/OrderingDetail')}</span>
+		<p:panel styleClass="ordering-header">
+			<span class="title">#{ivy.cms.co('/Labels/OrderingDetail')}</span>
 			<span jsf:rendered="#{cc.attrs.roleName == 'Ordering Manager'}"
 				style="float: right"> <p:button
 					value="#{ivy.cms.co('/Labels/Purchase')}" /> <p:button
 					value="#{ivy.cms.co('/Labels/Delete')}" /> <p:button
 					value="#{ivy.cms.co('/Labels/MyOrder')}" />
-			</span> <span jsf:rendered="#{cc.attrs.roleName == 'Purchasing Manager'}"
+			</span>
+			<span jsf:rendered="#{cc.attrs.roleName == 'Purchasing Manager'}"
 				style="float: right"> <p:button
 					value="#{ivy.cms.co('/Labels/Approve')}" /> <p:button
 					value="#{ivy.cms.co('/Labels/Reject')}" />
 			</span>
-		</div>
+		</p:panel>
 		<div class="ordering-body">
 			<p:panelGrid columns="3">
 				<p:outputLabel

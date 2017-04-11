@@ -7,10 +7,19 @@
 	margin-bottom: 10px;
 }
 
+.ordering-header {
+	border: none;
+	border-bottom:  2px solid #0288d1;
+}
+
+.ordering-header .title {
+	font-size: 24px;
+}
+
 .item-header {
 	border: 1px solid black;
 	text-align: center;
-	width: 80px;
+	width: 100px;
 	float: left;
 	margin-right: 20px;
 	padding: 10px;
