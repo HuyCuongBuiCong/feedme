@@ -8,12 +8,16 @@
 	xmlns:pm="http://primefaces.org/mobile"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:body>
-	<p:dialog header="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/createOrderingTicketDialogTitle')}" id="orderingTicket" visible="#{facesContext.validationFailed}" resizable="false"
-		widgetVar="orderingTicket" modal="true" appendTo="@(body)">
+	<p:dialog header="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/createOrderingTicketDialogTitle')}" id="orderDialog" visible="#{facesContext.validationFailed}" resizable="false"
+		widgetVar="orderDialog" modal="true" appendTo="@(body)">
 		<h:form id="orderDialogForm">
 					<span>#{data.currentRestaurantName}</span>
 					<span>#{data.currentRestaurantWebsite}</span>
-					I want to order <f:selectItems value="#{data.currentOrderTicket.foodItems}"> </f:selectItems>
+					I want to order <f:selectItems value="#{data.currentOrderTicket.foodItems}"> </f:selectItems> <span id="price"> It price is #{data.currentFoodPrice} </span> 
+					<br />
+					<span id="otherName"> its name  is <p:inputText value="#{data.currentOtherFoodName}" > </p:inputText> with price  <p:inputText value="#{data.currentFoodPrice}"> </p:inputText>  </span>
+					and my notice is <p:inputText > </p:inputText>, thanks !^^
+					<p:commandButton actionListener="#{logic.saveOrder}" value="Feed me plz !!!" update="form" icon="ui-icon-check" />
 		</h:form>
 			
 		<script>

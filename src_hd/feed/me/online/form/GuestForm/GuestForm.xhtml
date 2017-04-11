@@ -19,7 +19,7 @@
 				        	<br />
 				        	 #{order.createdDate}
 				        	<br />
-				        	<p:commandButton actionListener="#{logic.order}" value="Order" update="form" icon="ui-icon-check" />
+				        	<p:commandButton actionListener="#{logic.order}" oncomplete="PF('orderDialog').show()" value="Order" update="form" icon="ui-icon-check" />
 				        	<br />
 					        <p:commandButton actionListener="#{logic.edit}" value="Edit" update="form" icon="ui-icon-check" /> 
 					        
@@ -27,6 +27,7 @@
 				    </ui:repeat>
 				</p:scrollPanel>
 			</h:form>
+		<ui:include src="OrderDialog.xhtml"></ui:include>
 		</ui:define>
 	</ui:composition>
 </h:body>
