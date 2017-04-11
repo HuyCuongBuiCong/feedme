@@ -4,7 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import feed.me.online.entity.FoodItem;
 import feed.me.online.entity.FoodOrder;
@@ -119,7 +121,7 @@ public class CreateSampleData {
 	}
 
 	public static void createListOfFoodOrderFor(FoodItem foodItem) {
-		List<FoodOrder> foodOrders = new ArrayList<>();
+		Set<FoodOrder> foodOrders = new HashSet<>();
 
 		FoodOrder foodOrder1 = new FoodOrder();
 		foodOrder1.setFoodItem(foodItem);
@@ -131,7 +133,7 @@ public class CreateSampleData {
 
 		foodOrders.add(foodOrder1);
 		foodOrders.add(foodOrder2);
-		foodItem.setFoodOrder(foodOrders);
+		foodItem.setFoodOrders(foodOrders);
 	}
 	
 	public static float calculateTotalPrice(OrderingTicket orderingTicket){
