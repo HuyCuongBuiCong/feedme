@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import feed.me.online.entity.OrderingTicket;
+import feed.me.online.entity.Restaurant;
 
 public class OrderingTicketUtil {
  public static void sortByDate(List<OrderingTicket> orderingTickets){
@@ -13,4 +14,13 @@ public class OrderingTicketUtil {
  Collections.sort(orderingTickets, byCreatedDate );
  
  }
+ 
+	public static Restaurant getRestaurantById(List<Restaurant> restaurants, int restaurantId){
+		 for (Restaurant restaurant : restaurants){
+			 if (restaurant.getId() == restaurantId){
+				 return restaurant;
+			 }
+		 }
+		return null;
+	}
 }

@@ -6,3 +6,11 @@ restaurants List<feed.me.online.entity.Restaurant> #field
 restaurants PERSISTENT #fieldModifier
 selectedRestaurant feed.me.online.entity.Restaurant #field
 selectedRestaurant PERSISTENT #fieldModifier
+selectedRestaurantId Integer #field
+selectedRestaurantId PERSISTENT #fieldModifier
+foodItems java.util.Set<feed.me.online.entity.FoodItem> #field
+foodItems PERSISTENT #fieldModifier
+foodItem feed.me.online.entity.FoodItem #field
+foodItem PERSISTENT #fieldModifier
+selectedFoodItem feed.me.online.entity.FoodItem #field
+selectedFoodItem PERSISTENT #fieldModifier

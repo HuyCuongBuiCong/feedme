@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
+    <method>
+        <name>deleteFoodItem</name>
+        <description></description>
+        <inputParameter>
+            <name>foodItem</name>
+            <description></description>
+            <parameterType>feed.me.online.entity.FoodItem</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>startWithOrderingTickets</name>
         <description></description>
