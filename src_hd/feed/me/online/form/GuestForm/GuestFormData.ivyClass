@@ -1,2 +1,18 @@
 GuestFormData #class
 feed.me.online.form.GuestForm #namespace
+orderingTicket List<feed.me.online.entity.OrderingTicket> #field
+orderingTicket PERSISTENT #fieldModifier
+createdDate Date #field
+createdDate PERSISTENT #fieldModifier
+currentRestaurantName String #field
+currentRestaurantName PERSISTENT #fieldModifier
+currentRestaurantWebsite String #field
+currentRestaurantWebsite PERSISTENT #fieldModifier
+notice String #field
+notice PERSISTENT #fieldModifier
+currentOtherFoodName String #field
+currentOtherFoodName PERSISTENT #fieldModifier
+currentFoodPrice String #field
+currentFoodPrice PERSISTENT #fieldModifier
+currentOrderTicket feed.me.online.entity.OrderingTicket #field
+currentOrderTicket PERSISTENT #fieldModifier

@@ -23,6 +23,10 @@ public class OrderingTicketDAO extends BasicDAO {
 		return this.getEntityManager().findAll(OrderingTicket.class);
 	}
 	
+	public List<OrderingTicket> getOrderingTickets() {
+		return (List<OrderingTicket>) getEntityManager().createQuery("select o from OrderingTicket o").getResultList();
+	}
+	
 	public void save(Restaurant restaurant, List<FoodItem> foodItems, Boolean orderOutOfListFood){
 		OrderingTicket orderingTicket = new OrderingTicket();
 		if (restaurant.getId() == null || restaurant.getId() == 0){

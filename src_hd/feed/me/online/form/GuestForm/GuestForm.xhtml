@@ -10,24 +10,23 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">GuestForm</ui:define>
 		<ui:define name="content">
-			<h3>
-			This is an <a href="http://developer.axonivy.com/doc/latest/DesignerGuideHtml/ivy.userinterface.html#ivy-htmldialogs">Html Dialog</a> 
-			implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
-			</h3>
 			
 			<h:form id="form">
-				<h:panelGrid columns="2">
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-					
-					
-					
-					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
-				</h:panelGrid>
+				<p:scrollPanel style="width:100%;height:500px">
+					<ui:repeat value="${data.orderingTicket}" var="order" >
+						<div style="border: 1px solid; border-color: gray; float: left; width: 20%; height: 100%; margin-right: 20px; padding: 10px; text-align: center">
+				        	<span style="font-weight: bold; font-size: 15pt">#{order.restaurant.name} </span>
+				        	<br />
+				        	 #{order.createdDate}
+				        	<br />
+				        	<p:commandButton actionListener="#{logic.order}" value="Order" update="form" icon="ui-icon-check" />
+				        	<br />
+					        <p:commandButton actionListener="#{logic.edit}" value="Edit" update="form" icon="ui-icon-check" /> 
+					        
+						</div>
+				    </ui:repeat>
+				</p:scrollPanel>
 			</h:form>
-			
 		</ui:define>
 	</ui:composition>
 </h:body>
