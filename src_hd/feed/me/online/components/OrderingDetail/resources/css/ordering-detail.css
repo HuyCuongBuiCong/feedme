@@ -1,0 +1,25 @@
+.ui-datalist {
+	border: none;
+}
+
+.ui-datalist-item {
+	list-style: none !important;
+	margin-bottom: 10px;
+}
+
+.item-header {
+	border: 1px solid black;
+	text-align: center;
+	width: 80px;
+	float: left;
+	margin-right: 20px;
+	padding: 10px;
+}
+
+.item-content {
+	padding: 10px;
+}
+
+table, tr, td {
+	border: none !important;
+}

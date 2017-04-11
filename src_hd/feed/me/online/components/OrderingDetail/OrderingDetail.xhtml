@@ -33,33 +33,35 @@
 		<div class="ordering-body">
 			<p:panelGrid columns="3">
 				<p:outputLabel
-					value="#{ivy.cms.co('/Labels/Restauran')}: #{cc.attrs.orderingDetail.restaurantName}" />
+					value="#{ivy.cms.co('/Labels/Restauran')}: #{cc.attrs.orderingDetail.restaurant.name}" />
 				<p:outputLabel
-					value="#{ivy.cms.co('/Labels/Website')}: #{cc.attrs.orderingDetail.website}" />
+					value="#{ivy.cms.co('/Labels/Website')}: #{cc.attrs.orderingDetail.restaurant.website}" />
 				<p:outputLabel
-					value="#{ivy.cms.co('/Labels/Phone')}: #{cc.attrs.orderingDetail.phone}" />
-				<p:outputLabel value="#{ivy.cms.co('/Labels/CreetedDate')}: #{cc.attrs.orderingDetail.createdDate}" />
+					value="#{ivy.cms.co('/Labels/Phone')}: #{cc.attrs.orderingDetail.restaurant.phone}" />
 				<p:outputLabel
-					value="#{ivy.cms.co('/Labels/Total')}: " />
+					value="#{ivy.cms.co('/Labels/CreetedDate')}: #{cc.attrs.orderingDetail.createdDate}" />
+				<p:outputLabel value="#{ivy.cms.co('/Labels/Total')}: " />
 			</p:panelGrid>
-			 <p:dataList value="#{cc.attrs.orderingDetail.orderingDetailItems}"
+			<p:dataList value="#{cc.attrs.orderingDetail.foodItems}"
 				var="orderingDetailItem">
-				<div style="width: 50px;">
-					<div>#{orderingDetailItem.foodItem.name}</div>
-					<div>#{orderingDetailItem.numberOfUnits}</div>
-				</div>
-				<div>
-					<div>
-						<p:outputLabel
-							value="#{ivy.cms.co('/Labels/Price')}: #{orderingDetailItem.foodItem.price} vnd" />
+				<div class="row">
+					<div class="item-header">
+						<div>#{orderingDetailItem.name}</div>
+						<div>1</div>
 					</div>
-					<div>
-						<p:outputLabel value="#{ivy.cms.co('/Labels/Whose')}: #{orderingDetailItem.usernames}"/>
+					<div class="item-content">
+						<div>
+							<p:outputLabel value="Price: #{orderingDetailItem.price} vnd" />
+						</div>
+						<div>
+							<p:outputLabel value="Whose: xxx" />
+						</div>
 					</div>
 				</div>
 				<div></div>
 			</p:dataList>
 		</div>
 	</div>
+	<h:outputStylesheet name="css/ordering-detail.css" />
 </cc:implementation>
 </html>
