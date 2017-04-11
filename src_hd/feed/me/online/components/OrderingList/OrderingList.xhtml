@@ -1,45 +1,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
-      xmlns:ic="http://ivyteam.ch/jsf/component"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions"
-      xmlns:pm="http://primefaces.org/mobile"
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
-      
-   <cc:interface componentType="IvyComponent">
-			<cc:attribute name="selectedOrderingTicket"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<cc:interface componentType="IvyComponent">
+	<cc:attribute name="selectedOrderingTicket"
 		shortDescription="TableRowSelected will be invoked on the callback when a person is selected."
 		required="true" />
-	</cc:interface>
-  
-  <cc:implementation>
-   
-			<p:commandButton  styleClass="btn btn-primary btn-block" actionListener="#{logic.createNewOrderingTicket}"
-					oncomplete="PF('orderingTicket').show()" value="New">
-			</p:commandButton>
-		 		
- <div class="panel panel-primary">
-		<div class="panel-body">
-			<p:dataList value="#{data.orderingTickets}" var="orderingTicket"
-				type="unordered" itemType="none">
+</cc:interface>
 
-			<div class="form-group" >			
+<cc:implementation>
+	<h:form>
+		<p:commandButton styleClass="btn btn-primary btn-block"
+			actionListener="#{logic.createNewOrderingTicket}"
+			oncomplete="PF('orderingTicket').show()" value="New">
+		</p:commandButton>
+
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<p:dataList value="#{data.orderingTickets}" var="orderingTicket"
+					type="unordered" itemType="none">
+
+					<div class="form-group"></div>
+					<button
+						jsf:styleClass="btn btn-default btn-block text-left btn-primary"
+						jsf:update="orderingDetailForm">
+						#{orderingTicket.restaurant.name}
+						<f:setPropertyActionListener value="#{orderingTicket}"
+							target="#{cc.attrs.selectedOrderingTicket}"></f:setPropertyActionListener>
+					</button>
+				</p:dataList>
 			</div>
-				<button 
-					jsf:styleClass="btn btn-default btn-block text-left btn-primary"
-					jsf:update="viewAllExamination"
-					
-					 >
-				#{orderingTicket.restaurant.name} 
-			 <f:setPropertyActionListener value="#{orderingTicket}"
-						target="#{cc.attrs.selectedOrderingTicket}"></f:setPropertyActionListener>
-				</button> 
-			</p:dataList>
 		</div>
-	</div>
-  <ui:include src="CreatingNewOrderingTicketDialog.xhtml"></ui:include> 
-  </cc:implementation>
+	</h:form>
+	<ui:include src="CreatingNewOrderingTicketDialog.xhtml"></ui:include>
+</cc:implementation>
 </html>
