@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 16:22:11 ICT 2017]
+[>Created: Wed Apr 12 08:35:33 ICT 2017]
 15B55B49FB54294B 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderingListProcess Big #zClass
@@ -55,6 +55,11 @@ Os0 @RichDialogProcessEnd f36 '' #zField
 Os0 @GridStep f37 '' #zField
 Os0 @PushWFArc f38 '' #zField
 Os0 @PushWFArc f39 '' #zField
+Os0 @RichDialogProcessStart f40 '' #zField
+Os0 @GridStep f41 '' #zField
+Os0 @RichDialogProcessEnd f42 '' #zField
+Os0 @PushWFArc f44 '' #zField
+Os0 @PushWFArc f46 '' #zField
 >Proto Os0 Os0 OrderingListProcess #zField
 Os0 f0 guid 15B55BA58166B560 #txt
 Os0 f0 type feed.me.online.components.OrderingList.OrderingListData #txt
@@ -379,6 +384,43 @@ Os0 f38 expr out #txt
 Os0 f38 93 1032 152 1032 #arcP
 Os0 f39 expr out #txt
 Os0 f39 264 1032 307 1032 #arcP
+Os0 f40 guid 15B5CB4D992A1BD3 #txt
+Os0 f40 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f40 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
+' #txt
+Os0 f40 actionTable 'out=in;
+' #txt
+Os0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>initOrderingDetailData</name>
+        <nameStyle>22,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f40 420 255 26 26 -61 15 #rect
+Os0 f40 @|RichDialogProcessStartIcon #fIcon
+Os0 f41 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
+' #txt
+Os0 f41 actionTable 'out=in;
+' #txt
+Os0 f41 actionCode 'import feed.me.online.utils.CreateSampleData;
+import ch.ivyteam.ivy.environment.Ivy;
+Ivy.log().debug("init start");
+
+in.orderingManagerModel.total = CreateSampleData.calculateTotalPrice(in.orderingManagerModel.selectedOrderingTicket);
+in.orderingManagerModel.orderingDetailLineItems = CreateSampleData.initOrderingDetailLineItemsFor(in.orderingManagerModel.selectedOrderingTicket);' #txt
+Os0 f41 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f41 505 246 112 44 0 -8 #rect
+Os0 f41 @|StepIcon #fIcon
+Os0 f42 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f42 676 255 26 26 0 12 #rect
+Os0 f42 @|RichDialogProcessEndIcon #fIcon
+Os0 f44 expr out #txt
+Os0 f44 617 268 676 268 #arcP
+Os0 f46 expr out #txt
+Os0 f46 446 268 505 268 #arcP
 >Proto Os0 .type feed.me.online.components.OrderingList.OrderingListData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -413,3 +455,7 @@ Os0 f35 mainOut f38 tail #connect
 Os0 f38 head f37 mainIn #connect
 Os0 f37 mainOut f39 tail #connect
 Os0 f39 head f36 mainIn #connect
+Os0 f40 mainOut f46 tail #connect
+Os0 f46 head f41 mainIn #connect
+Os0 f41 mainOut f44 tail #connect
+Os0 f44 head f42 mainIn #connect

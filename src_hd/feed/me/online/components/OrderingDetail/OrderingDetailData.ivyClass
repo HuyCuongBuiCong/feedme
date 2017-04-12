@@ -1,2 +1,4 @@
 OrderingDetailData #class
 feed.me.online.components.OrderingDetail #namespace
+orderingDetail feed.me.online.model.OrderingManagerModel #field
+orderingDetail PERSISTENT #fieldModifier

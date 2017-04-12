@@ -10,7 +10,7 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 <cc:interface componentType="IvyComponent">
-	<cc:attribute name="selectedOrderingTicket"
+	<cc:attribute name="orderingManagerModel"
 		shortDescription="TableRowSelected will be invoked on the callback when a person is selected."
 		required="true" />
 </cc:interface>
@@ -28,13 +28,16 @@
 					type="unordered" itemType="none">
 
 					<div class="form-group"></div>
-					<button
-						jsf:styleClass="btn btn-default btn-block text-left  #{cc.attrs.selectedOrderingTicket.id == orderingTicket.id ? 'btn-primary':'btn-default'}"
-						jsf:update="orderingDetailForm">
-						#{orderingTicket.restaurant.name}
+					<p:commandButton
+						styleClass="btn btn-default btn-block text-left  #{cc.attrs.orderingManagerModel.selectedOrderingTicket.id == orderingTicket.id ? 'btn-primary':'btn-default'}"
+						update="orderingDetailForm"
+						value="#{orderingTicket.restaurant.name}"
+						actionListener="#{logic.initOrderingDetailData}">
+						<f:setPropertyActionListener value="#{data.orderingManagerModel}"
+							target="#{cc.attrs.orderingManagerModel}"></f:setPropertyActionListener>
 						<f:setPropertyActionListener value="#{orderingTicket}"
-							target="#{cc.attrs.selectedOrderingTicket}"></f:setPropertyActionListener>
-					</button>
+							target="#{cc.attrs.orderingManagerModel.selectedOrderingTicket}"></f:setPropertyActionListener>
+					</p:commandButton>
 				</p:dataList>
 			</div>
 		</div>

@@ -15,8 +15,10 @@
 					<div class="col-xs-4">
 						<ic:feed.me.online.components.OrderingList
 							orderingTickets="#{data.orderingManagerModel.orderingTickets}"
-							selectedOrderingTicket="#{data.orderingManagerModel.selectedOrderingTicket}"
-							startMethod="startWithOrderingTickets">
+							selectedOrderingTicket="#{data.orderingManagerModel}"
+							startMethod="startWithOrderingTickets"
+							orderingManagerModel = "#{data.orderingManagerModel}">
+							
 						</ic:feed.me.online.components.OrderingList>
 					</div>
 
