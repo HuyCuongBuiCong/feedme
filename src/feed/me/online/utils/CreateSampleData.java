@@ -97,11 +97,13 @@ public class CreateSampleData {
 		foodItem1.setName("Mango");
 		foodItem1.setPrice(20f);
 		foodItem1.setOrderingTicket(orderingTicket);
+		createListOfFoodOrderFor(foodItem1);
 
 		FoodItem foodItem2 = new FoodItem();
 		foodItem2.setName("Avocado");
 		foodItem2.setPrice(30f);
 		foodItem2.setOrderingTicket(orderingTicket);
+		createListOfFoodOrderFor(foodItem2);
 
 		fooditems.add(foodItem1);
 		fooditems.add(foodItem2);
@@ -117,7 +119,8 @@ public class CreateSampleData {
 		foodItem1.setName("Strawberry");
 		foodItem1.setPrice(80f);
 		foodItem1.setOrderingTicket(orderingTicket);
-
+		createListOfFoodOrderFor(foodItem1);
+		
 		FoodItem foodItem2 = new FoodItem();
 		foodItem2.setName("Banana");
 		foodItem2.setPrice(40f);
@@ -143,6 +146,7 @@ public class CreateSampleData {
 		foodItem2.setName("Tomato");
 		foodItem2.setPrice(45f);
 		foodItem2.setOrderingTicket(orderingTicket);
+		createListOfFoodOrderFor(foodItem2);
 
 		fooditems.add(foodItem1);
 		fooditems.add(foodItem2);
@@ -167,6 +171,9 @@ public class CreateSampleData {
 
 	public static float calculateTotalPrice(OrderingTicket orderingTicket) {
 		float totalPrice = 0;
+		if(orderingTicket == null || orderingTicket.getFoodItems() == null){
+			return 0;
+		}
 		for (FoodItem item : orderingTicket.getFoodItems()) {
 			totalPrice += item.getPrice();
 		}
@@ -176,6 +183,9 @@ public class CreateSampleData {
 	public static List<OrderingDetailLineItem> initOrderingDetailLineItemsFor(
 			OrderingTicket orderingTicket) {
 		List<OrderingDetailLineItem> orderingDetailLineItems = new ArrayList<>();
+		if(orderingTicket == null || orderingTicket.getFoodItems() == null){
+			return orderingDetailLineItems;
+		}
 		for (FoodItem foodItem : orderingTicket.getFoodItems()) {
 			Set<FoodOrder> foodOrders = foodItem.getFoodOrders();
 			if (CollectionUtils.isNotEmpty(foodOrders)) {

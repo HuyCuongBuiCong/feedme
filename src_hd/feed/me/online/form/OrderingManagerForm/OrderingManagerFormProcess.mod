@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 17:11:56 ICT 2017]
+[>Created: Wed Apr 12 08:42:43 ICT 2017]
 15AF444F77252180 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 OrderingManagerFormProcess Big #zClass
@@ -26,6 +26,9 @@ Vs0 @PushWFArc f8 '' #zField
 Vs0 @GridStep f9 '' #zField
 Vs0 @PushWFArc f10 '' #zField
 Vs0 @PushWFArc f2 '' #zField
+Vs0 @RichDialogProcessStart f11 '' #zField
+Vs0 @RichDialogProcessEnd f12 '' #zField
+Vs0 @PushWFArc f13 '' #zField
 >Proto Vs0 Vs0 OrderingManagerFormProcess #zField
 Vs0 f0 guid 15AF444F787D2C49 #txt
 Vs0 f0 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
@@ -109,6 +112,7 @@ OrderingTicketUtil.sortByDate(in.orderingManagerModel.orderingTickets);
 in.orderingManagerModel.selectedOrderingTicket = in.orderingManagerModel.orderingTickets.get(0);
 in.orderingManagerModel.total = CreateSampleData.calculateTotalPrice(in.orderingManagerModel.selectedOrderingTicket);
 in.orderingManagerModel.orderingDetailLineItems = CreateSampleData.initOrderingDetailLineItemsFor(in.orderingManagerModel.selectedOrderingTicket);
+
 in.role = LoginValidation.getRole();
 
 ' #txt
@@ -128,6 +132,28 @@ Vs0 f10 expr out #txt
 Vs0 f10 109 64 168 64 #arcP
 Vs0 f2 expr out #txt
 Vs0 f2 280 64 339 64 #arcP
+Vs0 f11 guid 15B5C88516C6AA7C #txt
+Vs0 f11 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
+Vs0 f11 actionDecl 'feed.me.online.form.OrderingManagerForm.OrderingManagerFormData out;
+' #txt
+Vs0 f11 actionTable 'out=in;
+' #txt
+Vs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>orderingTicketOnClick</name>
+        <nameStyle>21,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Vs0 f11 83 211 26 26 -60 15 #rect
+Vs0 f11 @|RichDialogProcessStartIcon #fIcon
+Vs0 f12 type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
+Vs0 f12 339 211 26 26 0 12 #rect
+Vs0 f12 @|RichDialogProcessEndIcon #fIcon
+Vs0 f13 expr out #txt
+Vs0 f13 109 224 339 224 #arcP
 >Proto Vs0 .type feed.me.online.form.OrderingManagerForm.OrderingManagerFormData #txt
 >Proto Vs0 .processKind HTML_DIALOG #txt
 >Proto Vs0 -8 -8 16 16 16 26 #rect
@@ -140,3 +166,5 @@ Vs0 f0 mainOut f10 tail #connect
 Vs0 f10 head f9 mainIn #connect
 Vs0 f9 mainOut f2 tail #connect
 Vs0 f2 head f1 mainIn #connect
+Vs0 f11 mainOut f13 tail #connect
+Vs0 f13 head f12 mainIn #connect

@@ -20,7 +20,7 @@
 				        	 #{order.orderingTicket.createdDate}
 				        	<br />
 				        	<p:commandButton rendered="#{order.orderedFlag == false}" actionListener="#{logic.order}" oncomplete="PF('orderDialog').show()" value="Order" update="form" icon="ui-icon-check" />
-					        <p:commandButton rendered="#{order.orderingTicket.status != 1 and order.orderedFlag == true}" actionListener="#{logic.edit}" value="Edit" update="form" icon="fa fa-edit" /> 
+					        <p:commandButton rendered="#{order.orderingTicket.status != 1 and order.orderedFlag == true}" actionListener="#{logic.edit}" value="Edit" update="form" icon="fa fa-edit"  /> 
 					        <ui:repeat rendered="#{order.orderedFlag == true}" value="#{order.orderedFoodItem}" var="foodItem">
 					        	<br />
 					        	#{foodItem.name}

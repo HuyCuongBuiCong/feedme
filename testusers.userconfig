@@ -24,10 +24,4 @@
         <fullName>Nguyen Minh Ly</fullName>
         <role>Ordering Manager</role>
     </user>
-        <user>
-        <username>guest</username>
-        <password>guest</password>
-        <fullName>guest</fullName>
-        <role>Guest</role>
-    </user>
 </userConfig>

@@ -16,6 +16,11 @@
 </cc:interface>
 
 <cc:implementation>
+<!-- 	<f:event listener="#{logic.initOrderingDetailData}" type="preRenderComponent">
+		<f:setPropertyActionListener value="#{cc.attrs.orderingDetail}" target="#{data.orderingDetail}"></f:setPropertyActionListener>
+	</f:event> -->
+	#{data.orderingDetail}
+	
 	<div class="ordering-detail">
 		<p:panel styleClass="ordering-header">
 			<span class="title">#{ivy.cms.co('/Labels/OrderingDetail')}</span>
