@@ -16,3 +16,5 @@ selectedFoodItem feed.me.online.entity.FoodItem #field
 selectedFoodItem PERSISTENT #fieldModifier
 orderingManagerModel feed.me.online.model.OrderingManagerModel #field
 orderingManagerModel PERSISTENT #fieldModifier
+orderOutOfListFood Boolean #field
+orderOutOfListFood PERSISTENT #fieldModifier
