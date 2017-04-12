@@ -1,6 +1,6 @@
 GuestFormData #class
 feed.me.online.form.GuestForm #namespace
-orderingTicket List<feed.me.online.entity.OrderingTicket> #field
+orderingTicket List<feed.me.online.model.OrderingTicketModel> #field
 orderingTicket PERSISTENT #fieldModifier
 createdDate Date #field
 createdDate PERSISTENT #fieldModifier

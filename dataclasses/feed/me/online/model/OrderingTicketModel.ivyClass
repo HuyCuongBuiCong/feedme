@@ -1,0 +1,8 @@
+OrderingTicketModel #class
+feed.me.online.model #namespace
+orderingTicket feed.me.online.entity.OrderingTicket #field
+orderingTicket PERSISTENT #fieldModifier
+orderedFlag Boolean #field
+orderedFlag PERSISTENT #fieldModifier
+orderedFoodItem java.util.List<feed.me.online.entity.FoodItem> #field
+orderedFoodItem PERSISTENT #fieldModifier

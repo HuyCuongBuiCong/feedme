@@ -15,14 +15,16 @@
 				<p:scrollPanel style="width:100%;height:500px">
 					<ui:repeat value="${data.orderingTicket}" var="order" >
 						<div style="border: 1px solid; border-color: gray; float: left; width: 20%; height: 100%; margin-right: 20px; padding: 10px; text-align: center">
-				        	<span style="font-weight: bold; font-size: 15pt">#{order.restaurant.name} </span>
+				        	<span style="font-weight: bold; font-size: 15pt">#{order.orderingTicket.restaurant.name} </span>
 				        	<br />
-				        	 #{order.createdDate}
+				        	 #{order.orderingTicket.createdDate}
 				        	<br />
-				        	<p:commandButton actionListener="#{logic.order}" oncomplete="PF('orderDialog').show()" value="Order" update="form" icon="ui-icon-check" />
-				        	<br />
-					        <p:commandButton actionListener="#{logic.edit}" value="Edit" update="form" icon="ui-icon-check" /> 
-					        
+				        	<p:commandButton rendered="#{order.orderedFlag == false}" actionListener="#{logic.order}" oncomplete="PF('orderDialog').show()" value="Order" update="form" icon="ui-icon-check" />
+					        <p:commandButton rendered="#{order.orderingTicket.status != 1 and order.orderedFlag == true}" actionListener="#{logic.edit}" value="Edit" update="form" icon="fa fa-edit" /> 
+					        <ui:repeat rendered="#{order.orderedFlag == true}" value="#{order.orderedFoodItem}" var="foodItem">
+					        	<br />
+					        	#{foodItem.name}
+					        </ui:repeat>
 						</div>
 				    </ui:repeat>
 				</p:scrollPanel>

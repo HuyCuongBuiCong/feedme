@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 18:28:34 ICT 2017]
+[>Created: Wed Apr 12 10:04:37 ICT 2017]
 15AF6AA659E39251 3.18 #module
 >Proto >Proto Collection #zClass
 Gs0 GuestFormProcess Big #zClass
@@ -65,9 +65,10 @@ Gs0 f6 actionDecl 'feed.me.online.form.GuestForm.GuestFormData out;
 ' #txt
 Gs0 f6 actionTable 'out=in;
 ' #txt
-Gs0 f6 actionCode 'import feed.me.online.DAO.OrderingTicketDAO;
-OrderingTicketDAO orderDAO = new OrderingTicketDAO();
-in.orderingTicket = orderDAO.getOrderingTickets();' #txt
+Gs0 f6 actionCode 'import feed.me.online.guestform.GuestFormBusiness;
+import feed.me.online.DAO.OrderingTicketDAO;
+GuestFormBusiness bus = new GuestFormBusiness();
+in.orderingTicket = bus.getOrderingTicketModel();' #txt
 Gs0 f6 type feed.me.online.form.GuestForm.GuestFormData #txt
 Gs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

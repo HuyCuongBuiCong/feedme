@@ -23,6 +23,10 @@ public class OrderingTicketDAO extends BasicDAO {
 		return this.getEntityManager().findAll(OrderingTicket.class);
 	}
 	
+	/**
+	 * Get OrderingTicket for guest form
+	 * @return
+	 */
 	public List<OrderingTicket> getOrderingTickets() {
 		return (List<OrderingTicket>) getEntityManager().createQuery("select o from OrderingTicket o").getResultList();
 	}
