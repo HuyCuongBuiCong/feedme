@@ -7,41 +7,40 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:pm="http://primefaces.org/mobile"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
 <cc:interface componentType="IvyComponent">
-	<cc:attribute name="orderingManagerModel"
-		shortDescription="TableRowSelected will be invoked on the callback when a person is selected."
-		required="true" />
+	<cc:attribute name="orderingManagerModel" />
 </cc:interface>
 
 <cc:implementation>
-	<h:form>
-		<p:commandButton styleClass="btn btn-primary btn-block"
-			actionListener="#{logic.createNewOrderingTicket}"
-			oncomplete="PF('orderingTicket').show()" value="New">
-		</p:commandButton>
 
-		<div class="panel panel-primary">
-			<div class="panel-body">
-				<p:dataList value="#{data.orderingTickets}" var="orderingTicket"
-					type="unordered" itemType="none">
+	<p:commandButton styleClass="btn btn-primary btn-block"
+		actionListener="#{logic.createNewOrderingTicket}"
+		oncomplete="PF('orderingTicket').show()" value="New"
+		update="orderingTicket">
+	</p:commandButton>
+
+	<div class="panel panel-primary">
+		<div class="panel-body">
+			<h:panelGrid id="orderingList">
+				<p:dataList value="#{data.orderingManagerModel.orderingTickets}"
+					var="orderingTicket" type="unordered" itemType="none">
 
 					<div class="form-group"></div>
-					<p:commandButton
-						styleClass="btn btn-default btn-block text-left  #{cc.attrs.orderingManagerModel.selectedOrderingTicket.id == orderingTicket.id ? 'btn-primary':'btn-default'}"
-						update="orderingDetailForm"
+					<p:commandButton process="@this"
+						styleClass="btn btn-default btn-block text-left  #{data.orderingManagerModel.selectedOrderingTicket.id == orderingTicket.id ? 'btn-primary':'btn-default'}"
+						update="orderingForm:orderingListComponent:orderingList orderingForm:orderingDetailComponent:orderingDetail"
 						value="#{orderingTicket.restaurant.name}"
 						actionListener="#{logic.initOrderingDetailData}">
-						<f:setPropertyActionListener value="#{data.orderingManagerModel}"
-							target="#{cc.attrs.orderingManagerModel}"></f:setPropertyActionListener>
 						<f:setPropertyActionListener value="#{orderingTicket}"
-							target="#{cc.attrs.orderingManagerModel.selectedOrderingTicket}"></f:setPropertyActionListener>
+							target="#{data.orderingManagerModel.selectedOrderingTicket}"></f:setPropertyActionListener>
 					</p:commandButton>
 				</p:dataList>
-			</div>
+			</h:panelGrid>
 		</div>
-	</h:form>
+	</div>
 	<ui:include src="CreatingNewOrderingTicketDialog.xhtml"></ui:include>
 </cc:implementation>
 </html>

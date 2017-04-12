@@ -12,18 +12,14 @@
         </inputParameter>
     </method>
     <startMethod>
-        <name>startWithOrderingTickets</name>
+        <name>startWithOrderingDataModel</name>
         <description></description>
         <inputParameter>
-            <name>orderingTickets</name>
+            <name>orderingManagerModel</name>
             <description></description>
-            <parameterType>java.util.List&lt;feed.me.online.entity.OrderingTicket&gt;</parameterType>
+            <parameterType>feed.me.online.model.OrderingManagerModel</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
-    </startMethod>
-    <startMethod>
-        <name>startCuong</name>
-        <description></description>
     </startMethod>
     <property>
         <name>guid</name>

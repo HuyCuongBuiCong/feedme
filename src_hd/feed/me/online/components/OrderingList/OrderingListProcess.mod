@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Apr 12 08:35:33 ICT 2017]
+[>Created: Thu Apr 13 00:57:00 ICT 2017]
 15B55B49FB54294B 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderingListProcess Big #zClass
@@ -15,17 +15,11 @@ Os0 @MessageFlowInP-0n messageIn messageIn #zField
 Os0 @MessageFlowOutP-0n messageOut messageOut #zField
 Os0 @TextInP .xml .xml #zField
 Os0 @TextInP .responsibility .responsibility #zField
-Os0 @RichDialogInitStart f0 '' #zField
-Os0 @RichDialogProcessEnd f1 '' #zField
 Os0 @RichDialogProcessStart f3 '' #zField
 Os0 @RichDialogEnd f4 '' #zField
 Os0 @PushWFArc f5 '' #zField
-Os0 @GridStep f6 '' #zField
-Os0 @PushWFArc f7 '' #zField
-Os0 @PushWFArc f2 '' #zField
 Os0 @RichDialogInitStart f8 '' #zField
 Os0 @RichDialogProcessEnd f9 '' #zField
-Os0 @PushWFArc f10 '' #zField
 Os0 @RichDialogProcessStart f11 '' #zField
 Os0 @RichDialogProcessEnd f12 '' #zField
 Os0 @RichDialogProcessStart f14 '' #zField
@@ -60,31 +54,10 @@ Os0 @GridStep f41 '' #zField
 Os0 @RichDialogProcessEnd f42 '' #zField
 Os0 @PushWFArc f44 '' #zField
 Os0 @PushWFArc f46 '' #zField
+Os0 @GridStep f43 '' #zField
+Os0 @PushWFArc f45 '' #zField
+Os0 @PushWFArc f10 '' #zField
 >Proto Os0 Os0 OrderingListProcess #zField
-Os0 f0 guid 15B55BA58166B560 #txt
-Os0 f0 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f0 method startWithOrderingTickets(java.util.List<feed.me.online.entity.OrderingTicket>) #txt
-Os0 f0 disableUIEvents true #txt
-Os0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.util.List<feed.me.online.entity.OrderingTicket> orderingTickets> param = methodEvent.getInputArguments();
-' #txt
-Os0 f0 inParameterMapAction 'out.orderingTickets=param.orderingTickets;
-' #txt
-Os0 f0 outParameterDecl '<> result;
-' #txt
-Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithOrderingTickets</name>
-        <nameStyle>24,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Os0 f0 83 51 26 26 -67 15 #rect
-Os0 f0 @|RichDialogInitStartIcon #fIcon
-Os0 f1 339 51 26 26 0 12 #rect
-Os0 f1 @|RichDialogProcessEndIcon #fIcon
 Os0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -97,78 +70,31 @@ Os0 f3 @|RichDialogProcessStartIcon #fIcon
 Os0 f4 243 267 26 26 0 12 #rect
 Os0 f4 @|RichDialogEndIcon #fIcon
 Os0 f5 101 280 243 280 #arcP
-Os0 f6 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
-' #txt
-Os0 f6 actionTable 'out=in;
-' #txt
-Os0 f6 actionCode 'import java.util.HashSet;
-import feed.me.online.entity.FoodItem;
-import ch.ivyteam.ivy.environment.Ivy;
-import feed.me.online.entity.Restaurant;
-import java.util.ArrayList;
-
-in.foodItem = new FoodItem();
-in.foodItems = new HashSet<FoodItem>();
-
-in.restaurants = new ArrayList<Restaurant>();
-Restaurant res1 = new Restaurant();
-res1.setId(1);
-res1.setName("Restaurant 1");
-res1.setPhone("123456");
-res1.setWebsite("abc.com.vn");
-
-Restaurant res2 = new Restaurant();
-res2.setId(2);
-res2.setName("Restaurant 2");
-res2.setPhone("222222");
-res2.setWebsite("def.com.vn");
-
-in.restaurants.add(res1);
-in.restaurants.add(res2);
-
-in.selectedRestaurant = new Restaurant();
-' #txt
-Os0 f6 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Init Data</name>
-        <nameStyle>9,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Os0 f6 168 42 112 44 -22 -8 #rect
-Os0 f6 @|StepIcon #fIcon
-Os0 f7 expr out #txt
-Os0 f7 109 64 168 64 #arcP
-Os0 f2 expr out #txt
-Os0 f2 280 64 339 64 #arcP
 Os0 f8 guid 15B56F1011259CA9 #txt
 Os0 f8 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f8 method startCuong() #txt
+Os0 f8 method startWithOrderingDataModel(feed.me.online.model.OrderingManagerModel) #txt
 Os0 f8 disableUIEvents true #txt
 Os0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
+<feed.me.online.model.OrderingManagerModel orderingManagerModel> param = methodEvent.getInputArguments();
+' #txt
+Os0 f8 inParameterMapAction 'out.orderingManagerModel=param.orderingManagerModel;
 ' #txt
 Os0 f8 outParameterDecl '<> result;
 ' #txt
 Os0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>startCuong</name>
-        <nameStyle>10,5,7
+        <name>startWithOrderingDataModel</name>
+        <nameStyle>26,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Os0 f8 67 147 26 26 -30 15 #rect
+Os0 f8 67 147 26 26 -77 15 #rect
 Os0 f8 @|RichDialogInitStartIcon #fIcon
 Os0 f9 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f9 291 147 26 26 0 12 #rect
+Os0 f9 323 147 26 26 0 12 #rect
 Os0 f9 @|RichDialogProcessEndIcon #fIcon
-Os0 f10 expr out #txt
-Os0 f10 93 160 291 160 #arcP
 Os0 f11 guid 15B574E7CD1AA047 #txt
 Os0 f11 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f11 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
@@ -421,18 +347,59 @@ Os0 f44 expr out #txt
 Os0 f44 617 268 676 268 #arcP
 Os0 f46 expr out #txt
 Os0 f46 446 268 505 268 #arcP
+Os0 f43 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
+' #txt
+Os0 f43 actionTable 'out=in;
+' #txt
+Os0 f43 actionCode 'import java.util.HashSet;
+import feed.me.online.entity.FoodItem;
+import ch.ivyteam.ivy.environment.Ivy;
+import feed.me.online.entity.Restaurant;
+import java.util.ArrayList;
+
+in.foodItem = new FoodItem();
+in.foodItems = new HashSet<FoodItem>();
+
+in.restaurants = new ArrayList<Restaurant>();
+Restaurant res1 = new Restaurant();
+res1.setId(1);
+res1.setName("Restaurant 1");
+res1.setPhone("123456");
+res1.setWebsite("abc.com.vn");
+
+Restaurant res2 = new Restaurant();
+res2.setId(2);
+res2.setName("Restaurant 2");
+res2.setPhone("222222");
+res2.setWebsite("def.com.vn");
+
+in.restaurants.add(res1);
+in.restaurants.add(res2);
+
+in.selectedRestaurant = new Restaurant();
+' #txt
+Os0 f43 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Init Data</name>
+        <nameStyle>9,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f43 152 138 112 44 -22 -8 #rect
+Os0 f43 @|StepIcon #fIcon
+Os0 f45 expr out #txt
+Os0 f45 93 160 152 160 #arcP
+Os0 f10 expr out #txt
+Os0 f10 264 160 323 160 #arcP
 >Proto Os0 .type feed.me.online.components.OrderingList.OrderingListData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
 >Proto Os0 '' #fIcon
 Os0 f3 mainOut f5 tail #connect
 Os0 f5 head f4 mainIn #connect
-Os0 f0 mainOut f7 tail #connect
-Os0 f7 head f6 mainIn #connect
-Os0 f6 mainOut f2 tail #connect
-Os0 f2 head f1 mainIn #connect
-Os0 f8 mainOut f10 tail #connect
-Os0 f10 head f9 mainIn #connect
 Os0 f14 mainOut f16 tail #connect
 Os0 f16 head f15 mainIn #connect
 Os0 f17 mainOut f19 tail #connect
@@ -459,3 +426,7 @@ Os0 f40 mainOut f46 tail #connect
 Os0 f46 head f41 mainIn #connect
 Os0 f41 mainOut f44 tail #connect
 Os0 f44 head f42 mainIn #connect
+Os0 f8 mainOut f45 tail #connect
+Os0 f45 head f43 mainIn #connect
+Os0 f43 mainOut f10 tail #connect
+Os0 f10 head f9 mainIn #connect

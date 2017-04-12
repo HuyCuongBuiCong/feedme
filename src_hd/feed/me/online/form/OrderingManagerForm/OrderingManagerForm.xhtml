@@ -12,24 +12,21 @@
 		<ui:define name="content">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-xs-4">
-						<ic:feed.me.online.components.OrderingList
-							orderingTickets="#{data.orderingManagerModel.orderingTickets}"
-							selectedOrderingTicket="#{data.orderingManagerModel}"
-							startMethod="startWithOrderingTickets"
-							orderingManagerModel = "#{data.orderingManagerModel}">
-							
-						</ic:feed.me.online.components.OrderingList>
-					</div>
+					<h:form id="orderingForm">
+						<div class="col-xs-4">
+							<ic:feed.me.online.components.OrderingList id = "orderingListComponent"
+								startMethod="startWithOrderingDataModel"
+								orderingManagerModel="#{data.orderingManagerModel}">
+							</ic:feed.me.online.components.OrderingList>
+						</div>
 
-					<div class="col-xs-7">
-						<h:form id="orderingDetailForm">
+						<div class="col-xs-7">
 							<ic:feed.me.online.components.OrderingDetail
+								id = "orderingDetailComponent"
 								roleName="#{data.role.name}"
-								orderingDetail="#{data.orderingManagerModel}"/>
-						</h:form>
-					</div>
-
+								orderingDetail="#{data.orderingManagerModel}" />
+						</div>
+					</h:form>
 				</div>
 			</div>
 

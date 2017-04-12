@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Apr 12 08:42:43 ICT 2017]
+[>Created: Wed Apr 12 23:55:29 ICT 2017]
 15AF444F77252180 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 OrderingManagerFormProcess Big #zClass
@@ -104,7 +104,7 @@ import feed.me.online.utils.OrderingTicketUtil;
 import feed.me.online.utils.CreateSampleData;
 import feed.me.online.model.OrderingManagerModel;
 
-CreateSampleData.createSampleData();
+//CreateSampleData.createSampleData();
 OrderingTicketDAO orderingTicketDAO = new OrderingTicketDAO();
 in.orderingManagerModel = new OrderingManagerModel();
 in.orderingManagerModel.orderingTickets =  orderingTicketDAO.getAll();

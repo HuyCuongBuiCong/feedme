@@ -19,9 +19,9 @@
 <!-- 	<f:event listener="#{logic.initOrderingDetailData}" type="preRenderComponent">
 		<f:setPropertyActionListener value="#{cc.attrs.orderingDetail}" target="#{data.orderingDetail}"></f:setPropertyActionListener>
 	</f:event> -->
-	#{data.orderingDetail}
 	
 	<div class="ordering-detail">
+	<p:outputLabel id="orderingDetail" >
 		<p:panel styleClass="ordering-header">
 			<span class="title">#{ivy.cms.co('/Labels/OrderingDetail')}</span>
 			<span jsf:rendered="#{cc.attrs.roleName == 'Ordering Manager'}"
@@ -67,6 +67,7 @@
 				<div></div>
 			</p:dataList> 
 		</div>
+		</p:outputLabel>
 	</div>
 	<h:outputStylesheet name="css/ordering-detail.css" />
 </cc:implementation>
