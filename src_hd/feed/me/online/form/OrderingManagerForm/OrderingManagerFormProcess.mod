@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Apr 12 23:55:29 ICT 2017]
+[>Created: Sun Apr 16 15:51:06 ICT 2017]
 15AF444F77252180 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 OrderingManagerFormProcess Big #zClass
@@ -108,10 +108,12 @@ import feed.me.online.model.OrderingManagerModel;
 OrderingTicketDAO orderingTicketDAO = new OrderingTicketDAO();
 in.orderingManagerModel = new OrderingManagerModel();
 in.orderingManagerModel.orderingTickets =  orderingTicketDAO.getAll();
-OrderingTicketUtil.sortByDate(in.orderingManagerModel.orderingTickets);
-in.orderingManagerModel.selectedOrderingTicket = in.orderingManagerModel.orderingTickets.get(0);
-in.orderingManagerModel.total = CreateSampleData.calculateTotalPrice(in.orderingManagerModel.selectedOrderingTicket);
-in.orderingManagerModel.orderingDetailLineItems = CreateSampleData.initOrderingDetailLineItemsFor(in.orderingManagerModel.selectedOrderingTicket);
+if (in.orderingManagerModel.orderingTickets.size() > 0){
+	OrderingTicketUtil.sortByDate(in.orderingManagerModel.orderingTickets);
+	in.orderingManagerModel.selectedOrderingTicket = in.orderingManagerModel.orderingTickets.get(0);
+	in.orderingManagerModel.total = CreateSampleData.calculateTotalPrice(in.orderingManagerModel.selectedOrderingTicket);
+	in.orderingManagerModel.orderingDetailLineItems = CreateSampleData.initOrderingDetailLineItemsFor(in.orderingManagerModel.selectedOrderingTicket);
+}
 
 in.role = LoginValidation.getRole();
 
