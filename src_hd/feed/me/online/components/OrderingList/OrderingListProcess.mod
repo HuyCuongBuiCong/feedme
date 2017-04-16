@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Apr 13 00:57:00 ICT 2017]
-15B55B49FB54294B 3.18 #module
+[>Created: Sun Apr 16 18:10:36 ICT 2017]
+15B55B49FB54294B 3.19 #module
 >Proto >Proto Collection #zClass
 Os0 OrderingListProcess Big #zClass
 Os0 RD #cInfo
@@ -24,7 +24,6 @@ Os0 @RichDialogProcessStart f11 '' #zField
 Os0 @RichDialogProcessEnd f12 '' #zField
 Os0 @RichDialogProcessStart f14 '' #zField
 Os0 @RichDialogProcessEnd f15 '' #zField
-Os0 @PushWFArc f16 '' #zField
 Os0 @RichDialogProcessStart f17 '' #zField
 Os0 @RichDialogProcessEnd f18 '' #zField
 Os0 @PushWFArc f19 '' #zField
@@ -34,11 +33,6 @@ Os0 @RichDialogProcessEnd f21 '' #zField
 Os0 @GridStep f22 '' #zField
 Os0 @PushWFArc f23 '' #zField
 Os0 @PushWFArc f24 '' #zField
-Os0 @RichDialogProcessStart f25 '' #zField
-Os0 @RichDialogProcessEnd f26 '' #zField
-Os0 @GridStep f27 '' #zField
-Os0 @PushWFArc f28 '' #zField
-Os0 @PushWFArc f29 '' #zField
 Os0 @RichDialogProcessStart f30 '' #zField
 Os0 @RichDialogProcessEnd f31 '' #zField
 Os0 @GridStep f32 '' #zField
@@ -57,6 +51,14 @@ Os0 @PushWFArc f46 '' #zField
 Os0 @GridStep f43 '' #zField
 Os0 @PushWFArc f45 '' #zField
 Os0 @PushWFArc f10 '' #zField
+Os0 @RichDialogProcessStart f0 '' #zField
+Os0 @GridStep f1 '' #zField
+Os0 @RichDialogProcessEnd f2 '' #zField
+Os0 @PushWFArc f6 '' #zField
+Os0 @PushWFArc f7 '' #zField
+Os0 @GridStep f25 '' #zField
+Os0 @PushWFArc f26 '' #zField
+Os0 @PushWFArc f16 '' #zField
 >Proto Os0 Os0 OrderingListProcess #zField
 Os0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -133,11 +135,8 @@ Os0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Os0 f14 80 474 26 26 -53 15 #rect
 Os0 f14 @|RichDialogProcessStartIcon #fIcon
 Os0 f15 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f15 240 474 26 26 0 12 #rect
+Os0 f15 339 475 26 26 0 12 #rect
 Os0 f15 @|RichDialogProcessEndIcon #fIcon
-Os0 f16 expr out #txt
-Os0 f16 106 487 240 487 #arcP
-Os0 f16 0 0.5000000000000001 0 0 #arcLabel
 Os0 f17 guid 15B575C7746225EA #txt
 Os0 f17 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f17 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
@@ -199,40 +198,6 @@ Os0 f23 expr out #txt
 Os0 f23 93 704 144 704 #arcP
 Os0 f24 expr out #txt
 Os0 f24 256 704 328 704 #arcP
-Os0 f25 guid 15B5BFAA6CDB370D #txt
-Os0 f25 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f25 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
-' #txt
-Os0 f25 actionTable 'out=in;
-' #txt
-Os0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>addFoodItem</name>
-        <nameStyle>11,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Os0 f25 51 803 26 26 -36 15 #rect
-Os0 f25 @|RichDialogProcessStartIcon #fIcon
-Os0 f26 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f26 307 803 26 26 0 12 #rect
-Os0 f26 @|RichDialogProcessEndIcon #fIcon
-Os0 f27 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
-' #txt
-Os0 f27 actionTable 'out=in;
-' #txt
-Os0 f27 actionCode 'import feed.me.online.entity.FoodItem;
-in.foodItems.add(in.foodItem);
-in.foodItem = new FoodItem();' #txt
-Os0 f27 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f27 144 794 112 44 0 -8 #rect
-Os0 f27 @|StepIcon #fIcon
-Os0 f28 expr out #txt
-Os0 f28 77 816 144 816 #arcP
-Os0 f29 expr out #txt
-Os0 f29 256 816 307 816 #arcP
 Os0 f30 guid 15B5C3C6F45E9F91 #txt
 Os0 f30 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f30 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
@@ -351,31 +316,18 @@ Os0 f43 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
 ' #txt
 Os0 f43 actionTable 'out=in;
 ' #txt
-Os0 f43 actionCode 'import java.util.HashSet;
+Os0 f43 actionCode 'import feed.me.online.DAO.RestaurantDAO;
+import java.util.HashSet;
 import feed.me.online.entity.FoodItem;
 import ch.ivyteam.ivy.environment.Ivy;
 import feed.me.online.entity.Restaurant;
 import java.util.ArrayList;
 
+
+RestaurantDAO restaurantDAO = new RestaurantDAO(); 
+in.restaurants = restaurantDAO.getAll();
 in.foodItem = new FoodItem();
 in.foodItems = new HashSet<FoodItem>();
-
-in.restaurants = new ArrayList<Restaurant>();
-Restaurant res1 = new Restaurant();
-res1.setId(1);
-res1.setName("Restaurant 1");
-res1.setPhone("123456");
-res1.setWebsite("abc.com.vn");
-
-Restaurant res2 = new Restaurant();
-res2.setId(2);
-res2.setName("Restaurant 2");
-res2.setPhone("222222");
-res2.setWebsite("def.com.vn");
-
-in.restaurants.add(res1);
-in.restaurants.add(res2);
-
 in.selectedRestaurant = new Restaurant();
 ' #txt
 Os0 f43 type feed.me.online.components.OrderingList.OrderingListData #txt
@@ -394,14 +346,80 @@ Os0 f45 expr out #txt
 Os0 f45 93 160 152 160 #arcP
 Os0 f10 expr out #txt
 Os0 f10 264 160 323 160 #arcP
+Os0 f0 guid 15B763E01E4BCC91 #txt
+Os0 f0 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f0 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
+' #txt
+Os0 f0 actionTable 'out=in;
+' #txt
+Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>addFoodItem</name>
+        <nameStyle>11,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f0 49 802 26 26 -36 15 #rect
+Os0 f0 @|RichDialogProcessStartIcon #fIcon
+Os0 f1 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
+' #txt
+Os0 f1 actionTable 'out=in;
+' #txt
+Os0 f1 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
+import feed.me.online.entity.FoodItem;
+
+
+//in.foodItems.add(in.foodItem);
+Ivy.log().debug("FoodName: " + in.foodItem.name);
+Ivy.log().debug("FoodPrice: " + in.foodItem.price);
+//in.foodItem = new FoodItem();' #txt
+Os0 f1 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f1 150 793 112 44 0 -8 #rect
+Os0 f1 @|StepIcon #fIcon
+Os0 f2 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f2 310 803 26 26 0 12 #rect
+Os0 f2 @|RichDialogProcessEndIcon #fIcon
+Os0 f6 expr out #txt
+Os0 f6 75 815 150 815 #arcP
+Os0 f7 expr out #txt
+Os0 f7 262 815 310 815 #arcP
+Os0 f25 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
+' #txt
+Os0 f25 actionTable 'out=in;
+' #txt
+Os0 f25 actionCode 'import feed.me.online.DAO.OrderingTicketDAO;
+import ch.ivyteam.ivy.environment.Ivy;
+
+OrderingTicketDAO orderingTicketDAO = new OrderingTicketDAO();
+orderingTicketDAO.save(in.selectedRestaurant,in.foodItems.toArray(),in.orderOutOfListFood);
+
+' #txt
+Os0 f25 type feed.me.online.components.OrderingList.OrderingListData #txt
+Os0 f25 168 466 112 44 0 -8 #rect
+Os0 f25 @|StepIcon #fIcon
+Os0 f26 expr out #txt
+Os0 f26 105 487 168 488 #arcP
+Os0 f26 0 0.5000000000000001 0 0 #arcLabel
+Os0 f16 expr out #txt
+Os0 f16 280 488 339 488 #arcP
+Os0 f16 0 0.5000000000000001 0 0 #arcLabel
 >Proto Os0 .type feed.me.online.components.OrderingList.OrderingListData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
+>Proto Os0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>addFoodItem</name>
+        <nameStyle>11,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
 >Proto Os0 '' #fIcon
 Os0 f3 mainOut f5 tail #connect
 Os0 f5 head f4 mainIn #connect
-Os0 f14 mainOut f16 tail #connect
-Os0 f16 head f15 mainIn #connect
 Os0 f17 mainOut f19 tail #connect
 Os0 f19 head f18 mainIn #connect
 Os0 f11 mainOut f13 tail #connect
@@ -410,10 +428,6 @@ Os0 f20 mainOut f23 tail #connect
 Os0 f23 head f22 mainIn #connect
 Os0 f22 mainOut f24 tail #connect
 Os0 f24 head f21 mainIn #connect
-Os0 f25 mainOut f28 tail #connect
-Os0 f28 head f27 mainIn #connect
-Os0 f27 mainOut f29 tail #connect
-Os0 f29 head f26 mainIn #connect
 Os0 f30 mainOut f33 tail #connect
 Os0 f33 head f32 mainIn #connect
 Os0 f32 mainOut f34 tail #connect
@@ -430,3 +444,11 @@ Os0 f8 mainOut f45 tail #connect
 Os0 f45 head f43 mainIn #connect
 Os0 f43 mainOut f10 tail #connect
 Os0 f10 head f9 mainIn #connect
+Os0 f0 mainOut f6 tail #connect
+Os0 f6 head f1 mainIn #connect
+Os0 f1 mainOut f7 tail #connect
+Os0 f7 head f2 mainIn #connect
+Os0 f14 mainOut f26 tail #connect
+Os0 f26 head f25 mainIn #connect
+Os0 f25 mainOut f16 tail #connect
+Os0 f16 head f15 mainIn #connect

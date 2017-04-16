@@ -10,14 +10,14 @@
 <h:body>
 	<p:dialog header="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/createOrderingTicketDialogTitle')}" id="orderingTicket" visible="#{facesContext.validationFailed}" resizable="false"
 		widgetVar="orderingTicket" modal="true" appendTo="@(body)">
-		<h:form id="orderingTicketForm">
+		<h:form id ="orderingTicketForm">
 					<h:panelGrid columns="2" cellpadding="10" cellspacing="100">
 											
 					<h:outputLabel for="orderingTicketDataRestaurant" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/orderingTicketRestaurant')}" />
 					<p:selectOneMenu id="orderingTicketDataRestaurant" value="#{data.selectedRestaurantId}" style="width: 265px;" required="true">
  						<f:selectItem itemLabel="New Restaurant" itemValue="0"/> 
  						<f:selectItems value="#{data.restaurants}" var="restaurant" itemLabel="#{restaurant.name}" itemValue="#{restaurant.id}"/>
- 						<p:ajax event="change" listener="#{logic.onSelectRestaurant}" update="@form" />
+ 						<p:ajax event="change" listener="#{logic.onSelectRestaurant}" update="orderingTicketForm"/>
 					</p:selectOneMenu>
 
 					<h:outputLabel for="restaurantName" value="#{ivy.cms.co('/Dialogs/CreatingNewOrderingTicket/restaurantName')}" />
@@ -55,7 +55,7 @@
 			            	<pe:inputNumber id="foodPrice" value="#{data.foodItem.price}" style="width: 100px;"/>
 			            </p:column>
 			            <p:column>
-			            	<p:commandButton value="Add" actionListener="#{logic.addFoodItem}" update="@form"/>
+			            	<p:commandButton value="Add" actionListener="#{logic.addFoodItem}" process="@this"/>
 			            </p:column>
 					</p:row>
 				</h:panelGrid>
@@ -70,7 +70,7 @@
                 			<h:outputText value="#{foodItem.price}" />
             			</p:column>
             			<p:column headerText="Action">
-            				<p:commandLink value="delete" actionListener="#{logic.deleteFoodItem(foodItem)}" update="@form"></p:commandLink> 
+            				<p:commandLink value="delete" actionListener="#{logic.deleteFoodItem(foodItem)}"></p:commandLink> 
             			</p:column>
 				    </p:dataTable>
 			    <!-- </h:panelGrid> -->
@@ -78,10 +78,10 @@
 			<h:panelGroup>
 				<br />
 				<p:commandButton value="#{ivy.cms.co('/Dialogs/general/save')}" actionListener="#{logic.saveOrderingTicket}"
-					oncomplete="validateToHide(args, PF('orderingTicket'));" id="dialogSaveButton" />
+					oncomplete="validateToHide(args, PF('orderingTicket'));" id="dialogSaveButton" process="@this" />
 				<p:commandButton value="#{ivy.cms.co('/Dialogs/general/close')}"
 					actionListener="#{logic.closeDialog}" process="@this" oncomplete="PF('orderingTicket').hide();">
-					<p:resetInput target="orderingTicketForm"></p:resetInput>
+					<!-- <p:resetInput target="orderingTicketForm"></p:resetInput> -->
 				</p:commandButton>
 			</h:panelGroup>
 			            
