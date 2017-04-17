@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Sun Apr 16 18:10:36 ICT 2017]
-15B55B49FB54294B 3.19 #module
+[>Created: Mon Apr 17 08:48:12 ICT 2017]
+15B55B49FB54294B 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderingListProcess Big #zClass
 Os0 RD #cInfo
@@ -33,11 +33,6 @@ Os0 @RichDialogProcessEnd f21 '' #zField
 Os0 @GridStep f22 '' #zField
 Os0 @PushWFArc f23 '' #zField
 Os0 @PushWFArc f24 '' #zField
-Os0 @RichDialogProcessStart f30 '' #zField
-Os0 @RichDialogProcessEnd f31 '' #zField
-Os0 @GridStep f32 '' #zField
-Os0 @PushWFArc f33 '' #zField
-Os0 @PushWFArc f34 '' #zField
 Os0 @RichDialogMethodStart f35 '' #zField
 Os0 @RichDialogProcessEnd f36 '' #zField
 Os0 @GridStep f37 '' #zField
@@ -192,43 +187,21 @@ import ch.ivyteam.ivy.environment.Ivy;
 in.selectedRestaurant = OrderingTicketUtil.getRestaurantById(in.restaurants,in.selectedRestaurantId);
 ' #txt
 Os0 f22 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f22 144 682 112 44 0 -8 #rect
-Os0 f22 @|StepIcon #fIcon
-Os0 f23 expr out #txt
-Os0 f23 93 704 144 704 #arcP
-Os0 f24 expr out #txt
-Os0 f24 256 704 328 704 #arcP
-Os0 f30 guid 15B5C3C6F45E9F91 #txt
-Os0 f30 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f30 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
-' #txt
-Os0 f30 actionTable 'out=in;
-' #txt
-Os0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Os0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>deleteFoodItem</name>
-        <nameStyle>14,5,7
+        <name>Select restaurant</name>
+        <nameStyle>17,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Os0 f30 51 915 26 26 -43 15 #rect
-Os0 f30 @|RichDialogProcessStartIcon #fIcon
-Os0 f31 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f31 307 915 26 26 0 12 #rect
-Os0 f31 @|RichDialogProcessEndIcon #fIcon
-Os0 f32 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
-' #txt
-Os0 f32 actionTable 'out=in;
-' #txt
-Os0 f32 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f32 144 906 112 44 0 -8 #rect
-Os0 f32 @|StepIcon #fIcon
-Os0 f33 expr out #txt
-Os0 f33 77 928 144 928 #arcP
-Os0 f34 expr out #txt
-Os0 f34 256 928 307 928 #arcP
+Os0 f22 152 682 112 44 -46 -8 #rect
+Os0 f22 @|StepIcon #fIcon
+Os0 f23 expr out #txt
+Os0 f23 93 704 152 704 #arcP
+Os0 f24 expr out #txt
+Os0 f24 264 704 328 704 #arcP
 Os0 f35 guid 15B5C4401FF71075 #txt
 Os0 f35 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f35 method deleteFoodItem(feed.me.online.entity.FoodItem) #txt
@@ -249,10 +222,10 @@ Os0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f35 67 1019 26 26 -73 15 #rect
+Os0 f35 59 915 26 26 -73 15 #rect
 Os0 f35 @|RichDialogMethodStartIcon #fIcon
 Os0 f36 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f36 307 1019 26 26 0 12 #rect
+Os0 f36 299 915 26 26 0 12 #rect
 Os0 f36 @|RichDialogProcessEndIcon #fIcon
 Os0 f37 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
 ' #txt
@@ -269,12 +242,12 @@ Os0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f37 152 1010 112 44 -45 -8 #rect
+Os0 f37 144 906 112 44 -45 -8 #rect
 Os0 f37 @|StepIcon #fIcon
 Os0 f38 expr out #txt
-Os0 f38 93 1032 152 1032 #arcP
+Os0 f38 85 928 144 928 #arcP
 Os0 f39 expr out #txt
-Os0 f39 264 1032 307 1032 #arcP
+Os0 f39 256 928 299 928 #arcP
 Os0 f40 guid 15B5CB4D992A1BD3 #txt
 Os0 f40 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f40 actionDecl 'feed.me.online.components.OrderingList.OrderingListData out;
@@ -370,13 +343,19 @@ Os0 f1 actionTable 'out=in;
 Os0 f1 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
 import feed.me.online.entity.FoodItem;
 
-
-//in.foodItems.add(in.foodItem);
-Ivy.log().debug("FoodName: " + in.foodItem.name);
-Ivy.log().debug("FoodPrice: " + in.foodItem.price);
-//in.foodItem = new FoodItem();' #txt
+in.foodItems.add(in.foodItem);
+in.foodItem = new FoodItem();' #txt
 Os0 f1 type feed.me.online.components.OrderingList.OrderingListData #txt
-Os0 f1 150 793 112 44 0 -8 #rect
+Os0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Add food item</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f1 150 793 112 44 -37 -8 #rect
 Os0 f1 @|StepIcon #fIcon
 Os0 f2 type feed.me.online.components.OrderingList.OrderingListData #txt
 Os0 f2 310 803 26 26 0 12 #rect
@@ -428,10 +407,6 @@ Os0 f20 mainOut f23 tail #connect
 Os0 f23 head f22 mainIn #connect
 Os0 f22 mainOut f24 tail #connect
 Os0 f24 head f21 mainIn #connect
-Os0 f30 mainOut f33 tail #connect
-Os0 f33 head f32 mainIn #connect
-Os0 f32 mainOut f34 tail #connect
-Os0 f34 head f31 mainIn #connect
 Os0 f35 mainOut f38 tail #connect
 Os0 f38 head f37 mainIn #connect
 Os0 f37 mainOut f39 tail #connect
